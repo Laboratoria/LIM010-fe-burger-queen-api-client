@@ -1,18 +1,31 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-//Components
-// import Header from './components/Header';
-// import Content from './components/Content';
-// import Footer from './components/Footer';
-import Login from './components/Login';
+// //Components
+// // import Header from './components/Header';
+// // import Content from './components/Content';
+// // import Footer from './components/Footer';
+// import Login from './components/Login';
 
-class App extends Component {
-  render() {
+// class App extends Component {
+//   render() {
+//     return (
+//       <div className="App">
+//         <Login />
+//       </div>
+//     );
+//   }
+// }
+// export default App;
+
+import React from 'react';
+import ViewLogin from './components/pages/ViewLogin.js';
+
+const App = () => {
     return (
-      <div className="App">
-        <Login />
+      <div>
+        <ViewLogin />
       </div>
     );
   }
-}
+
 export default App;
