@@ -1,31 +1,29 @@
-// import React, { Component } from 'react';
-
-// //Components
-// // import Header from './components/Header';
-// // import Content from './components/Content';
-// // import Footer from './components/Footer';
-// import Login from './components/Login';
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <Login />
-//       </div>
-//     );
-//   }
-// }
-// export default App;
-
-import React from 'react';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import ViewLogin from './components/pages/ViewLogin.js';
-
-const App = () => {
-    return (
+export default function App() {
+  return (
+    <Router>
       <div>
-        <ViewLogin />
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/Home">
+            <Home />
+          </Route>
+          <Route path="/">
+            <ViewLogin/>
+          </Route>
+        </Switch>
       </div>
-    );
-  }
+    </Router>
+  );
+}
 
-export default App;
+function Home() {
+  return <h2>Bienvenido Mesero!!!</h2>;
+}
