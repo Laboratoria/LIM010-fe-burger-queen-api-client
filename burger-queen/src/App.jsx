@@ -1,10 +1,11 @@
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
-} from "react-router-dom";
-import ViewLogin from './components/pages/ViewLogin.js';
+  Route,
+} from 'react-router-dom';
+import ViewLogin from './components/pages/ViewLogin.jsx';
+
 export default function App() {
   return (
     <Router>
@@ -16,7 +17,7 @@ export default function App() {
             <Home />
           </Route>
           <Route path="/">
-            <ViewLogin/>
+            <ViewLogin />
           </Route>
         </Switch>
       </div>
