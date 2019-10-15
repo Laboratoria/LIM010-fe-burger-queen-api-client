@@ -16,10 +16,9 @@ const PLogin = () => {
         <input type="text" name="email" placeholder="email" />
         <br />
         <input type="password" name="password" placeholder="password" id="password" />
-        <br />
+        <br/>
         <button type="submit">Login</button>
-      </form>
-     
+      </form>    
       {/* onClick={() => { setEmail('Bienvenido'); }}><Link to="/Home">Login</Link */}
       {email}
     </div>
