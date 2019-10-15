@@ -5,6 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import ViewLogin from './components/pages/ViewLogin.jsx';
+import ViewWaiterMenu from './components/pages/ViewWaiterMenu.jsx';
 
 export default function App() {
   return (
@@ -14,17 +15,11 @@ export default function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/Home">
-            <Home />
+            <ViewWaiterMenu />
           </Route>
-          <Route path="/">
-            <ViewLogin />
-          </Route>
+          <Route path="/" component={ViewLogin} />
         </Switch>
       </div>
     </Router>
   );
-}
-
-function Home() {
-  return <h2>Bienvenido Mesero!!!</h2>;
 }
