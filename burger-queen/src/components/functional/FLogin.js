@@ -1,13 +1,20 @@
-// import React, { useState } from 'react';
+// import React from 'react';
+const FLogin = (email, password) => {
+	return (
+		fetch('http://localhost:5000/autha', {
+			method:'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({'email': email, 'password': password} )
+		})
+		.then((respuesta) => {
+			console.log(respuesta);
+		})
+		.catch((e)=>{
+			console.log(e);
+		})
+	);
+};
 
-// const FLogin = () => {
-// // inicializamos el estado inicial de nuestro componente
-// const [mensaje, setMensaje] = useState('');
-// return(
-// <span>
-// <button onClick={() => {setMensaje('hola') }}>btn</button>
-// {mensaje}
-// </span>
-// );
-// };
-// export default FLogin;
+export default FLogin;

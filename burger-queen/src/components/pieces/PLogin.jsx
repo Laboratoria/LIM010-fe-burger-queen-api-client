@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import FLogin from '../functional/FLogin.js';
 
 const PLogin = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('zaida');
+  const [password, setPassword] = useState('zaida');
+
   return (
     <div>
-      <form>
+      <form onSubmit={e =>{e.preventDefault()
+        FLogin(email, password)
+      }} >
         {/* <input type='text' name='email' placeholder='email' value={email} onChange={(e) =>
         {setEmail(e.target.value)}} /><br></br> */}
         <input type="text" name="email" placeholder="email" />
         <br />
         <input type="password" name="password" placeholder="password" id="password" />
-        <br />
-      </form>
-      <button type="button" onClick={() => { setEmail('Bienvenido'); }}><Link to="/Home">Login</Link></button>
+        <br/>
+        <button type="submit">Login</button>
+      </form>    
+      {/* onClick={() => { setEmail('Bienvenido'); }}><Link to="/Home">Login</Link */}
       {email}
     </div>
   );
