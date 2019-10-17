@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import PFooter from '../pieces/PFooter.jsx';
 import PLogo from '../pieces/PLogo.jsx';
 import PLogin from '../pieces/PLogin.jsx';
-
+import styles from '../styles/Login.module.css';
 
 const ViewLogin = ({ history }) => (
-  <div>
+  <div className={styles.padding}>
     <PLogo />
     <PLogin history={history} />
     <PFooter />

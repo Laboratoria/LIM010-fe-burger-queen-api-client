@@ -6,7 +6,7 @@ import CLogin from '../functional/CLogin.js';
 const PLogin = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [error, setErr] = useState('');
+  const [err, setErr] = useState('');
 
   console.log('history ', history);
 
@@ -21,12 +21,15 @@ const PLogin = ({ history }) => {
     <div>
       <form onSubmit={(e) => {
         e.preventDefault();
+        if (!email || !password) {
+          setErr('Debes colocar email y password')
+          return false;
+        }
         CLogin(email, password).then((res) => {
           console.log(res.token);
           history.replace('/Home');
-        }).catch((err) => {
-          // setErr(err.message);
-          console.log(err);
+        }).catch((error) => {
+          setErr(error.message);
         });
       }}
       >
@@ -36,7 +39,9 @@ const PLogin = ({ history }) => {
         <br />
         <input value={password} onChange={FPassword} type="password" name="password" placeholder="password" id="password" />
         <br />
-        <button type="submit" value="btn">Login</button>
+        <button type="submit" value="btn" data-testid="botonSubmit">Login</button>
+        {err && <p data-testid="mensajeError" style={{ color: 'red' }}>{err}</p>}
+
       </form>
       {/* <button type="submit"><Link to="/Home">Login</Link></button>
       {email} */}
