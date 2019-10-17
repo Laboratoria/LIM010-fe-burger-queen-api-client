@@ -37,7 +37,7 @@ const PLogin = ({ history }) => {
         <br />
         <input value={password} onChange={FPassword} type="password" name="password" placeholder="Password" id="password" />
         <br />
-        <button type="submit" value="btn">Login</button>
+        <button type="submit" className={`btn btn-success ${styles.button}`} value="btn">Login</button>
       </form>
       {/* <button type="submit"><Link to="/Home">Login</Link></button>
       {email} */}
