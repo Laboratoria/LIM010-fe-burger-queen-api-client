@@ -1,4 +1,4 @@
-const CLogin = (email, password) => (
+const FLogin = (email, password) => (
   fetch('http://localhost:5000/auth', {
     method: 'POST',
     headers: {
@@ -16,4 +16,4 @@ const CLogin = (email, password) => (
     })
 );
 
-export default CLogin;
+export default FLogin;
