@@ -4,7 +4,7 @@ import styles2 from '../styles/Footer.module.css';
 
 const PFooter = () => (
   <div className={`${styles2.footer} ${styles1.align}`}>
-    <p>Copyright © 2019 por Zaida & Meliza.</p>
+    <p className={styles2.p}>Copyright © 2019 por Zaida & Meliza. All rights reserved.</p>
   </div>
 );
 

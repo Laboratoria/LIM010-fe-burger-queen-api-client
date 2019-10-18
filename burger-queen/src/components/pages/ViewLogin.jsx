@@ -8,7 +8,7 @@ import styles from '../styles/Login.module.css';
 const ViewLogin = ({ history }) => (
   <div className={`${styles.body} ${styles.padding}`}>
     <PLogo />
-    <PLogin history={history} />
+    <PLogin history={history}/>
     <PFooter />
   </div>
 );

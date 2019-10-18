@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';
 import CLogin from '../functional/CLogin.js';
+import style1 from '../styles/Login.module.css';
 
 const PLogin = ({ history }) => {
   const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ const PLogin = ({ history }) => {
   };
 
   return (
-    <div>
+    <div className = {style1.align}>
       <form onSubmit={(e) => {
         e.preventDefault();
         if (!email || !password) {
@@ -35,11 +36,12 @@ const PLogin = ({ history }) => {
       >
         {/* <input type='text' name='email' placeholder='email' value={email} onChange={(e) =>
         {setEmail(e.target.value)}} /><br></br> */}
-        <input value={email} onChange={FEmail} type="text" name="email" placeholder="email" />
+        <input className="form-control" value={email} onChange={FEmail} type="text" name="email" placeholder="Email" />
         <br />
-        <input value={password} onChange={FPassword} type="password" name="password" placeholder="password" id="password" />
+        <input className="form-control" value={password} onChange={FPassword} type="password" name="password" placeholder="Password" id="password" />
         <br />
-        <button type="submit" value="btn" data-testid="botonSubmit">Login</button>
+        <p className={style1.mensajeContraseña}>¿Olvidaste tu conytaseña?</p>
+        <button type="submit" className={`btn btn-success ${style1.button}`} value="btn" data-testid="botonSubmit">LOGIN</button>
         {err && <p data-testid="mensajeError" style={{ color: 'red' }}>{err}</p>}
 
       </form>
