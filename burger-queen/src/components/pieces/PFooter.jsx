@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from '../styles/Login.module.css';
+import styles1 from '../styles/Login.module.css';
+import styles2 from '../styles/Footer.module.css';
 
 const PFooter = () => (
-  <React.Fragment>
-    <p>Copynright 2019 Zaida-Meliza</p>
-  </React.Fragment>
+  <div className={`${styles2.footer} ${styles1.align}`}>
+    <p>Copyright © 2019 por Zaida & Meliza.</p>
+  </div>
 );
 
 export default PFooter;

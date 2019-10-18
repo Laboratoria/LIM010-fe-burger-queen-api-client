@@ -1,5 +1,10 @@
 .body {
-    height: 100vh
+    height: 100vh;
+    background-image: url(../images/fondoBurger.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .img {
     width: 30%;
@@ -9,4 +14,8 @@
 }
 .padding {
     padding-top: 50%;
+}
+.button{
+    width: 335px;
+    height: 50px;
 }
