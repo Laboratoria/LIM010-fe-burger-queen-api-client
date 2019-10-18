@@ -1,15 +1,28 @@
-import Flogin from '../controlers/Flogin.jsx';
+import Flogin from '../../components/functional/CLogin.js';
 import fetchMock from 'fetch-mock';
 
-it('Traedo token', () => {
-    fetchMock
-    .post('http://example.com',{ email: 'meliza@gmail.com', password: '12345678' });
-    const rendered = renderer.create(<Flogin/>).toJSON();
-    expect(rendered).toBe(200, { token: 'asdasdasdsad' });
-});
+afterEach(() => {
+  fetchMock.reset();
+})
 
-// // toBeTruthy
-// // fetchMock.mock('http://example.com', 200);
-// // const res = await fetch('http://example.com');
-// // assert(res.ok);
-// // fetchMock.restore();
+describe('Traer token',  () => {
+    it('Have to get token', async(done) => {
+      fetchMock
+        .post('http://localhost:5000/auth', { status: 200, body: { token: 'abcjdefghi' } });
+		Flogin('mesero@gmail.com','12345678')
+        .then( respuesta => {
+          expect(respuesta.token).toBe('abcjdefghi')
+          done()
+        })
+    })
+    
+    it('Have to get token error 400', async(done) => {
+        fetchMock
+          .post('http://localhost:5000/auth', 400)
+        Flogin('aaaaa','123456')
+           .catch( err => {
+             expect(err.message).toBe('Ingrese su usuario y/o contraseña')
+             done()
+           })
+       }) 
+})
