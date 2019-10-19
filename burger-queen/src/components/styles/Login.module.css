@@ -8,23 +8,41 @@
     background-attachment: fixed;
 }
 .img {
-    width: 30%;
+    width: 45%;
 }
 .align {
     text-align: center;
 }
 .padding {
-    padding-top: 50%;
+    padding-top: 8%;
 }
 .button{
     width: 335px;
     height: 50px;
     color: #0a0a0a;
     font-weight: 800;
+    margin-top: 16%;
 }
 .mensajeContraseña {
     color: #0a0a0a;
-    font-weight: 700;
+    font-weight: 800;
     text-align: right;
     padding-right: 4%;
+    font-size: 14px;
+    margin-top: 4%;
+}
+.mensajeError {
+    color: red;
+    font-weight: 700;
+    margin: 4%;
+}
+
+.loginMargin {
+    margin: 3%;
+}
+.formIcon {
+    display: flex;
+}
+.spanIcon {
+    margin: 3%;
 }

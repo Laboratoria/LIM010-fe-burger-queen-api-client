@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';
-import CLogin from '../functional/CLogin.js';
+import CLogin from '../controllers/CLogin.js';
 import style1 from '../styles/Login.module.css';
 
 const PLogin = ({ history }) => {
@@ -19,7 +19,7 @@ const PLogin = ({ history }) => {
   };
 
   return (
-    <div className = {style1.align}>
+    <div className = {`${style1.loginMargin} ${style1.align}`}>
       <form onSubmit={(e) => {
         e.preventDefault();
         if (!email || !password) {
@@ -36,13 +36,19 @@ const PLogin = ({ history }) => {
       >
         {/* <input type='text' name='email' placeholder='email' value={email} onChange={(e) =>
         {setEmail(e.target.value)}} /><br></br> */}
+        <div className={style1.formIcon}>
+        <span className={`glyphicon glyphicon-user ${style1.spanIcon}`}></span>
         <input className="form-control" value={email} onChange={FEmail} type="text" name="email" placeholder="Email" />
+        </div>
         <br />
+        <div className={style1.formIcon}>
+        <span className={`glyphicon glyphicon-lock ${style1.spanIcon}`}></span>
         <input className="form-control" value={password} onChange={FPassword} type="password" name="password" placeholder="Password" id="password" />
+        </div>
         <br />
-        <p className={style1.mensajeContraseña}>¿Olvidaste tu conytaseña?</p>
+        <p className={style1.mensajeContraseña}>¿Olvidaste tu contraseña?</p>
         <button type="submit" className={`btn btn-success ${style1.button}`} value="btn" data-testid="botonSubmit">LOGIN</button>
-        {err && <p data-testid="mensajeError" style={{ color: 'red' }}>{err}</p>}
+        {err && <p data-testid="mensajeError" className={style1.mensajeError}>{err}</p>}
 
       </form>
       {/* <button type="submit"><Link to="/Home">Login</Link></button>
