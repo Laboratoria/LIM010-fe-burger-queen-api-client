@@ -2,11 +2,20 @@
     background: #0A0909;
     color: #FFF9F9;
     width: 100vw;
-    height: 5%;
+    height: 33px;
 	position: absolute;
     bottom: 0;
 }
 .p {
     margin-top: 6px;
     font-size: 12px;
+}
+@media (min-width:1024px) {
+    .footer {
+        height: 5%;
+    }
+    .p {
+        margin-top: 0px;
+        font-size: 20px;
+    }
 }

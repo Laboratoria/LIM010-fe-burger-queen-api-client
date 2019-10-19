@@ -7,9 +7,11 @@ import styles from '../styles/Login.module.css';
 
 const ViewLogin = ({ history }) => (
   <div className={`${styles.body} ${styles.padding}`}>
-    <PLogo />
-    <br/>
-    <PLogin history={history} />
+    <div className={styles.form}>
+      <PLogo />
+      <br />
+      <PLogin history={history} />
+    </div>
     <PFooter />
   </div>
 );
