@@ -1,0 +1,100 @@
+{
+    "desayuno": [
+        {
+            "producto": "Sándwich",
+            "id": "Sándwich de jamón con queso",
+            "precio": 35.00,
+            "total": 35.00, 
+            "img": "https://i.ibb.co/17yZs3T/sandwich.png",
+            "specifications": "Con todo", 
+            "quantity": 1
+        }, 
+        {
+            "producto": "Café",
+            "id": "Café",
+            "precio": 20.00, 
+            "total": 20.00,
+            "img": "https://i.ibb.co/5Mj4BXx/coffee.png",
+            "specifications": "Con todo", 
+            "quantity": 1
+        },
+        {
+            "producto": "Café con leche",
+            "id": "Café con leche",
+            "precio": 28.00, 
+            "total": 28.00,
+            "img": "https://i.ibb.co/5Mj4BXx/coffee.png",
+            "specifications": "Con todo", 
+            "quantity": 1
+        },
+        {
+            "producto": "Jugo",
+            "id": "Jugo",
+            "precio": 15.00, 
+            "total": 15.00,
+            "img": "https://i.ibb.co/ScWCbnK/jugo.png",
+            "specifications": "Con todo", 
+            "quantity": 1
+        }
+    ],
+    "bebidas": [
+        {
+            "producto": "Agua",
+            "id": "Agua",
+            "precio": 10.00, 
+            "total": 10.00,
+            "img": "https://i.ibb.co/dgHPxB2/agua.png",
+            "specifications": "Con todo", 
+            "quantity": 1
+        },
+        {
+            "producto": "Refresco",
+            "id": "Refresco",
+            "precio": 10.00, 
+            "total": 10.00,
+            "img": "https://i.ibb.co/XJPk2JZ/beverage.png",
+            "specifications": "Con todo", 
+            "quantity": 1
+        }
+    ],
+    "guarniciones": [
+        {
+            "producto": "Papas fritas",
+            "id": "Papas fritas",
+            "precio": 15.00, 
+            "total": 15.00,
+            "img": "https://i.ibb.co/hcMZXcz/french-fries2.png",
+            "specifications": "Con todo", 
+            "quantity": 1
+        },
+        {
+            "producto": "Aros de cebolla",
+            "id": "Aros de cebolla",
+            "precio": 15.00,
+            "total": 15.00, 
+            "img": "https://i.ibb.co/xMJY8Vd/onion-rings.png",
+            "specifications": "Con todo", 
+            "quantity": 1
+        }
+    ],
+    "extras": [
+        {
+            "producto": "Huevo",
+            "id": "Huevo",
+            "precio": 15.00,
+            "total": 15.00,  
+            "img": "https://i.ibb.co/3cGqzJv/egg.png",
+            "specifications": "Con todo", 
+            "quantity": 1
+        },
+        {
+            "producto": "Queso",
+            "id": "Queso",
+            "precio": 15.00, 
+            "total": 15.00, 
+            "img": "https://i.ibb.co/hFSvGp6/cheese-3.png",
+            "specifications": "Con todo", 
+            "quantity": 1
+        }
+    ]
+}

@@ -2,7 +2,14 @@
     background: #0A0909;
     color: #FFF9F9;
     width: 100vw;
-    height: 22px;
-	position: absolute;
-	bottom: 0;
+    position: absolute;
+    bottom: 0;
+}
+.parrafo {
+    font-size: 12px;
+}
+@media (min-width:1024px) {
+    .parrafo {
+        font-size: 20px;
+    }
 }

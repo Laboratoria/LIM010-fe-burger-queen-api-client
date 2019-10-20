@@ -6,16 +6,81 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.formIcon {
+    display: flex;
+}
+.mensajeContraseña {
+    color: #0a0a0a;
+    font-weight: 700;
+    text-align: right;
+    font-size: 14px;
+}
+.button{
+    color: #0a0a0a;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
 .img {
-    width: 30%;
+    width: 25%;
 }
 .align {
     text-align: center;
 }
-.padding {
-    padding-top: 50%;
+.mensajeError {
+    color: red;
+    font-weight: 700;
+    margin: 4%;
 }
-.button{
-    width: 335px;
-    height: 50px;
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+.loginMargin {
+    margin: 6%;
+}
+.spanIcon {
+    display: flex;
+    align-items: center;
+}
+@media (min-width:1024px) {
+    .img {
+        width: 35%;
+    }
+    .fondoFormulario {
+        margin-left: 35%;
+        margin-right: 35%;
+        background: rgba(241, 231, 231, 0.4);
+        box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+    }
+    .button{
+        height: 4em;
+        font-size: 14px;
+        border-radius: 1em;
+    }
+    .mensajeContraseña, .mensajeError {
+        font-size: 17px;
+    }
+}
+@media (min-width: 650px) and (max-width: 1023px) {
+    .img {
+        width: 37%;
+    }
+    .button{
+        height: 2.6em;
+        border-radius: 0.6em;
+    }
+    .mensajeContraseña, .mensajeError {
+        font-size: 14px;
+    }
+    .fondoFormulario {
+        margin-left: 26%;
+        margin-right: 26%;
+        background: rgba(241, 231, 231, 0.4);
+        box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+    }
+  }
