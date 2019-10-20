@@ -1,5 +1,4 @@
 .body {
-    width: 100vw;
     height: 100vh;
     background-image: url(../images/fondoBurger.jpg);
     background-size: cover;
@@ -7,112 +6,81 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-.img {
-    width: 45%;
+.form {
+    display: flex;
+    flex-direction: column;
 }
-.align {
-    text-align: center;
-}
-.padding {
-    padding-top: 8%;
-}
-.button{
-    width: 335px;
-    height: 50px;
-    color: #0a0a0a;
-    font-weight: 800;
-    margin-top: 16%;
+.formIcon {
+    display: flex;
 }
 .mensajeContraseña {
     color: #0a0a0a;
-    font-weight: 800;
+    font-weight: 700;
     text-align: right;
-    padding-right: 4%;
     font-size: 14px;
-    margin-top: 4%;
+}
+.button{
+    color: #0a0a0a;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+.img {
+    width: 25%;
+}
+.align {
+    text-align: center;
 }
 .mensajeError {
     color: red;
     font-weight: 700;
     margin: 4%;
 }
-.loginMargin {
-    margin: 3%;
-}
-.formIcon {
+.center {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.loginMargin {
+    margin: 6%;
 }
 .spanIcon {
-    margin: 3%;
+    display: flex;
+    align-items: center;
 }
 @media (min-width:1024px) {
     .img {
-        width: 40%;
+        width: 35%;
     }
-    .padding {
-        padding-top: 5%;
-    }
-    .loginMargin {
-        margin: 10%;
-    }
-    .button{
-        margin-top: 7%;
-        width: 316px;
-    }
-    .mensajeContraseña {
-        padding-right: 0%;
-        margin-top: 0%;
-        font-size: 16px;
-    }
-    .mensajeError {
-        font-size: 18px;
-    }
-    .spanIcon {
-        margin: 2%;
-    }
-    .form {
+    .fondoFormulario {
         margin-left: 35%;
         margin-right: 35%;
-        padding-bottom: 2%;
-        padding-top: 2%;
         background: rgba(241, 231, 231, 0.4);
         box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
+    }
+    .button{
+        height: 4em;
+        font-size: 14px;
+        border-radius: 1em;
+    }
+    .mensajeContraseña, .mensajeError {
+        font-size: 17px;
     }
 }
 @media (min-width: 650px) and (max-width: 1023px) {
     .img {
-        width: 40%;
-    }
-    .padding {
-        padding-top: 3%;
-    }
-    .loginMargin {
-        margin: 6%;
+        width: 37%;
     }
     .button{
-        margin-top: 0%;
-        width: 222px;
-        height: 36px;
-        font-size: 13px;
+        height: 2.6em;
+        border-radius: 0.6em;
     }
-    .mensajeContraseña {
-        padding-right: 0%;
-        margin-top: 0%;
-        font-size: 11px;
+    .mensajeContraseña, .mensajeError {
+        font-size: 14px;
     }
-    .mensajeError {
-        font-size: 13px;
-    }
-    .spanIcon {
-        margin: 4%;
-    }
-    .form {
-        margin-left: 32%;
-        margin-right: 32%;
-        padding-bottom: 2%;
-        padding-top: 2%;
+    .fondoFormulario {
+        margin-left: 26%;
+        margin-right: 26%;
         background: rgba(241, 231, 231, 0.4);
         box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1);
     }
-    
   }

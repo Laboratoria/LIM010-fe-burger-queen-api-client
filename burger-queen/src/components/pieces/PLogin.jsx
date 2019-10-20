@@ -20,7 +20,7 @@ const PLogin = ({ history }) => {
 
   return (
     <div className = {`${style1.loginMargin} ${style1.align}`}>
-      <form onSubmit={(e) => {
+      <form className={style1.form} onSubmit={(e) => {
         e.preventDefault();
         if (!email || !password) {
           setErr('Debes colocar email y password')
