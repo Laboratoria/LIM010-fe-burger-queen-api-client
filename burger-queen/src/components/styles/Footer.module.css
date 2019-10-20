@@ -2,7 +2,7 @@
     background: #0A0909;
     color: #FFF9F9;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     bottom: 0;
 }
 .parrafo {

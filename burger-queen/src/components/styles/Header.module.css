@@ -1,0 +1,48 @@
+.img {
+  width: 18%;
+}
+.headerBarraMenu {
+  display: flex;
+  align-items: center;
+}
+.headerMenuUno {
+  display: flex;
+}
+.cerrar {
+  background: rgba(79, 183, 131, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  font-size: 13px;
+  font-weight: 800;
+}
+.headerMenuDos {
+  background: rgba(250, 188, 96, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  width: 100vw;
+}
+.bienvenida {
+  font-size: 17px;
+  font-weight: 700;
+  font-family: 'Merienda One';
+}
+@media (min-width:1024px) {
+  .img {
+    width: 8%;
+  }
+  .cerrar {
+    font-size: 25px;
+  }
+  .bienvenida {
+    font-size: 45px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1023px) {
+  .img {
+    width: 9%;
+  }
+  .cerrar {
+    font-size: 12px;
+  }
+  .bienvenida {
+    font-size: 21px;
+  }
+}

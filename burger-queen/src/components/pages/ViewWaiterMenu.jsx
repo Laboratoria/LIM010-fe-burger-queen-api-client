@@ -1,9 +1,14 @@
 import React from 'react';
+import PHeader from '../pieces/PHeader.jsx';
+import PFooter from '../pieces/PFooter.jsx';
+import PMenu from '../pieces/PMenu.jsx';
 
 const ViewWaiterMenu = () => {
   return (
     <div>
-      <h2>Bienvenido Mesero!!!</h2>
+      <PHeader/>
+      <PMenu/>
+      <PFooter/>
     </div>
   );
 };
