@@ -6,7 +6,7 @@
 }
 .menu {
   position: absolute;
-  top: 62px;
+  top: 66px;
   width: 100vw;
   transition: all 0.5s;
   transform: translateX(-100%);
@@ -54,6 +54,10 @@
   font-size: 17px;
   font-weight: 700;
   font-family: 'Merienda One';
+}
+.iconLabel {
+  font-size: 27px;
+  padding-left: 31%;
 }
 @media (min-width:1024px) {
   .img {

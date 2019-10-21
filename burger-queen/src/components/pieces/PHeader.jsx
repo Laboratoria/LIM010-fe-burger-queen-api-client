@@ -10,7 +10,7 @@ const PHeader = () => (
       <p className={style.bienvenida}>¡Bienvenido Carlos!</p>
     {/* <input className={style.cerrar} type="button" value="CERRAR SESIÓN" /> */}
     <input type="checkbox" className={style.btnMenu} id="btnMenu"/>
-    <label class="glyphicon glyphicon-align-justify" for="btnMenu"></label>
+    <label class={`glyphicon glyphicon-align-justify ${style.iconLabel}`} for="btnMenu"></label>
     <nav className={style.menu}>
         <ul>
           <li className={style.itemMenu}><a>PEDIDOS</a></li>
