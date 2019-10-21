@@ -5,7 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import ViewLogin from './components/pages/ViewLogin.jsx';
-import ViewWaiterMenu from './components/pages/ViewWaiterMenu.jsx';
+import ViewWaiterMenu from './components/pages/ListMenu.jsx';
 
 export default function App() {
   return (
