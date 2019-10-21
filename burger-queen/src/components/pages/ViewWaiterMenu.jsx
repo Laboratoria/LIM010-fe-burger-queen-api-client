@@ -7,7 +7,7 @@ import PMenu from '../pieces/PMenu.jsx';
 const ViewWaiterMenu = () => (
   <div>
     <PHeader />
-    <PMenu />
+    {/* <PMenu /> */}
     <PFooter />
   </div>
 );
