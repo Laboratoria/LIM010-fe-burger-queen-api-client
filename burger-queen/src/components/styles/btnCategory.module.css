@@ -1,0 +1,10 @@
+.btnCategory {
+  padding: 5%;
+  color: #F1F1F1;
+  background-color:#c51230;
+  border-radius: 15px;
+  border-style:none;
+  margin:10px;
+  flex:1;
+  font-weight: bold;
+}

@@ -9,13 +9,13 @@
   display: flex;
 }
 .cerrar {
-  background: rgba(79, 183, 131, 0.92);
+  background: #FED75F;
   border: 1px solid rgba(0, 0, 0, 0.5);
   font-size: 13px;
   font-weight: 800;
 }
 .headerMenuDos {
-  background: rgba(250, 188, 96, 0.92);
+  background: #c51230;
   border: 1px solid rgba(0, 0, 0, 0.5);
   width: 100vw;
 }
