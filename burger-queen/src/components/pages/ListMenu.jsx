@@ -16,6 +16,14 @@ const ViewWaiterMenu = () => {
     { id: 3, producto: 'Sandwich de jamón y queso', precio: '10' },
     { id: 4, producto: 'Jugo de frutas natural', precio: '7' }];
 
+  const almuerzo = [
+      {
+        id: 1, producto: 'Hamburguesa simple', precio: '5',
+      },
+      { id: 2, producto: 'Hamburguesa doble', precio: '7' },
+      { id: 3, producto: 'Papas fritas', precio: '10' },
+      { id: 4, producto: 'Aros de cebolla', precio: '7' }];
+
 
   return (
     <div className={containerPedido.containerPedido}>
