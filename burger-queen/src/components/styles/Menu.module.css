@@ -1,7 +1,6 @@
 .menu {
     display: flex;
     height: 100vh;
-    position: fixed;
 }
 .menuUno {
     display: flex;

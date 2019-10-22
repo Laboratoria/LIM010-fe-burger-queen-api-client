@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ItemMenu from '../pieces/ItemMenu.jsx';
+import ItemMenu from '../pieces/itemMenu.jsx';
 import listItemMenu from '../styles/itemMenu.module.css';
 import ListCategory from '../pieces/ListCategory.jsx';
 import OrderTemplate from '../pieces/OrderTemplate.jsx';
