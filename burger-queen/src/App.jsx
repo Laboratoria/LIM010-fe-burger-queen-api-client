@@ -22,6 +22,8 @@ export default function App() {
             <ListMenu />
           </Route> */}
           <Route path="/" component={ViewLogin} />
+          <Route path="/Pedidos" component={ViewLogin} />
+          <Route path="/ListaPedidos" component={ViewLogin} />
         </Switch>
       </div>
     </Router>

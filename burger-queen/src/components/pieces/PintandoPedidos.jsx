@@ -17,10 +17,7 @@ const PintarProductos = () => {
   useEffect(() => {
     productos('el token')
   }, [])
-  // const getProduct = (e) =>{
-  //   setProdData(e);
-  // } 
-
+  
   return (
     <div>
       <button

@@ -3,7 +3,6 @@ const products = (token) => (
     method: 'GET',
     headers: {
       authorization: token,
-
       'Content-Type': 'application/json',
     },
 
