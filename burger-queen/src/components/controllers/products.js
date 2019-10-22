@@ -14,6 +14,7 @@ const products = (token) => (
       } if (respuesta.status === 401) {
         return Promise.reject(new Error('no hay cabecera de autentificación'));
       }
+      return Promise.reject({ message: respuesta.statusText });
     })
 );
 

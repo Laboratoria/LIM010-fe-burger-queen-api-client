@@ -1,11 +1,14 @@
 import React from 'react';
 import products from '../controllers/products.js';
 
+// const [prodData, setProdData] = useState([]);
 const PintarProductos = () => {
   const productos = (token) => {
-    products(token).then((res) => {
-      console.log(res);
-    }).catch((error) => {
+    products(token).then((res) => (
+      res.productos.map((item) => console.log(item.name),
+        //   <button key={item.id}>{item.name}</button>
+      )
+    )).catch((error) => {
       console.log(error);
     });
   };
