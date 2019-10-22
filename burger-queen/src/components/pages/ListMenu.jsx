@@ -20,7 +20,6 @@ const ViewWaiterMenu = () => {
   return (
     <div className={containerPedido.containerPedido}>
       <section className={containerPedido.containerListMenu}>
-        {/* {listCategoryMenu.map((cat) => <CategoryMenu nameCategory={cat.categoria} />)} */}
         <ListCategory />
         <div className={listItemMenu.containerFlexIzq}>
           {desayuno.map((btn) => <ItemMenu nameMenu={btn.producto} precioMenu={btn.precio} key={btn.id} />)}
