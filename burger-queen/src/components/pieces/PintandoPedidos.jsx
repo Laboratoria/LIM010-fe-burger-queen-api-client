@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import products from '../controllers/products.js';
-
+import btnCategory from '../styles/btnCategory.module.css';
+import itemMenu from '../styles/itemMenu.module.css';
 // const [prodData, setProdData] = useState([]);
 const PintarProductos = () => {
   const [prodData, setProdData] = useState([]);
@@ -17,13 +18,11 @@ const PintarProductos = () => {
   useEffect(() => {
     productos('el token')
   }, [])
-  // const getProduct = (e) =>{
-  //   setProdData(e);
-  // } 
 
   return (
     <div>
       <button
+        className={btnCategory.btnCategory}
         type="submit"
         onClick={() => {
           setProdType('desayuno')
@@ -31,6 +30,7 @@ const PintarProductos = () => {
           Desayuno
       </button>
       <button
+        className={btnCategory.btnCategory}
         type="submit"
         onClick={() => {
           setProdType('almuerzo')
@@ -38,7 +38,7 @@ const PintarProductos = () => {
           Almuerzo
       </button>
       {prodData.filter(p => p.type === prodType).map((p) => (
-        <button key={p.id}>{p.name}</button>
+      <button className={itemMenu.listItemMenu}  key={p.id}>{p.name}</button>
       ))}
     </div>
   );
