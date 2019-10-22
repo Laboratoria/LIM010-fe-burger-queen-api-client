@@ -1,6 +1,7 @@
 import React from 'react';
 
-import ItemMenu from '../pieces/itemMenu.jsx';
+// import ItemMenu from '../pieces/itemMenu.jsx';
+import Productos from '../pieces/productos.jsx';
 import listItemMenu from '../styles/itemMenu.module.css';
 import ListCategory from '../pieces/ListCategory.jsx';
 import OrderTemplate from '../pieces/OrderTemplate.jsx';
@@ -20,10 +21,9 @@ const ViewWaiterMenu = () => {
   return (
     <div className={containerPedido.containerPedido}>
       <section className={containerPedido.containerListMenu}>
-        {/* {listCategoryMenu.map((cat) => <CategoryMenu nameCategory={cat.categoria} />)} */}
         <ListCategory />
         <div className={listItemMenu.containerFlexIzq}>
-          {desayuno.map((btn) => <ItemMenu nameMenu={btn.producto} precioMenu={btn.precio} key={btn.id} />)}
+          {desayuno.map((btn) => <Productos nameMenu={btn.producto} precioMenu={btn.precio} key={btn.id} />)}
         </div>
       </section>
       <section>
