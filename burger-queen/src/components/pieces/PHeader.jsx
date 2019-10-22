@@ -12,12 +12,12 @@ const PHeader = () => (
       <input type="checkbox" className={style.btnMenu} id="btnMenu" />
       <label className={`glyphicon glyphicon-align-justify ${style.iconLabel}`} htmlFor="btnMenu" />
       <nav className={style.menu}>
-      <ul>
+        <ul>
           <li className={style.itemMenu}><a href="/Home">PEDIDOS</a></li>
           <li className={style.itemMenu}><a href="/Home">LISTA DE PEDIDOS</a></li>
           <li className={style.itemMenu}><a href="/">CERRAR SESIÓN</a></li>
         </ul>
-    </nav>
+      </nav>
     </div>
   </div>
 );
