@@ -5,8 +5,9 @@ import itemMenu from '../styles/itemMenu.module.css';
 import OrderTotal from './OrderTotal.jsx';
 import lineaOrder from '../styles/itemMenu.module.css';
 import containerPedido from '../styles/containerPedido.module.css';
-import HeadTableOrder from './HeadTableOrder';
+import OrderHead from './OrderHead';
 import itemOrderTable from '../styles/itemOrder.module.css';
+import OrderRow from './OrderRow.jsx';
 // const [prodData, setProdData] = useState([]);
 const PintarProductos = () => {
   const [prodData, setProdData] = useState([]);
@@ -53,8 +54,6 @@ const PintarProductos = () => {
               <button className={itemMenu.listItemMenu} key={p.id}>
                 {p.name}
                 {' '}
-                {''}
-                {' '}
                 {p.price}
               </button>
             ))}
@@ -71,9 +70,21 @@ const PintarProductos = () => {
               <input placeholder="Nombre del cliente" className={lineaOrder.nameInput} />
             </div>
             <div className={itemOrderTable.tableOrder}>
-              <HeadTableOrder />
+              <table>
+                <thead>
+                  <OrderHead />
+                </thead>
+                <tbody>
+                  {/* { menu.map((item) => ( */}
+                  <OrderRow />
+                  {/* ))} */}
+                </tbody>
+                <tfoot>
+                  <OrderTotal />
+                </tfoot>
+
+              </table>
             </div>
-            <OrderTotal />
             <div className={lineaOrder.footerSideOrder}>
               <button className={lineaOrder.btnEnviar}>ENVIAR</button>
               <button className={lineaOrder.btnEnviar}>CANCELAR</button>
