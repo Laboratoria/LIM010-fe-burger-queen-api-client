@@ -3,7 +3,9 @@ import totalOrder from '../styles/itemMenu.module.css';
 
 const OrderTotal = () => (
   <>
-    <p className={totalOrder.totalOrder}>Total S/ </p>
+    <tr>
+      <td className={totalOrder.totalOrder}>Total S/ </td>
+    </tr>
   </>
 );
 
