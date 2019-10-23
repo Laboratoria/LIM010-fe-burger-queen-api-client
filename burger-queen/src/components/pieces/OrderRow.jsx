@@ -1,10 +1,9 @@
 import React from 'react';
 import itemOrderTab from '../styles/itemOrder.module.css';
 
-const OrderRow = () => {
-  const name = 'Cafe';
-  const price = '7';
-  const cant = '2';
+const OrderRow = (props) => {
+  const producto = props.producto;
+  const { name, cant, price } = producto;
 
   return (
     <tr>
