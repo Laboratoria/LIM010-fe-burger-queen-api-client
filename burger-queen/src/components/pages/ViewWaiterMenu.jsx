@@ -1,6 +1,6 @@
 import React from 'react';
-// import PHeader from '../pieces/PHeader.jsx';
-// import PFooter from '../pieces/PFooter.jsx';
+import PHeader from '../pieces/PHeader.jsx';
+import PFooter from '../pieces/PFooter.jsx';
 // import PMenu from '../pieces/PMenu.jsx';
 import PintandoPedidos from '../pieces/PintandoPedidos.jsx';
 // import ListMenu from './ListMenu.jsx';
@@ -8,9 +8,9 @@ import PintandoPedidos from '../pieces/PintandoPedidos.jsx';
 const ViewWaiterMenu = () => (
   <div>
 
-    {/* <PHeader /> */}
+    <PHeader />
     <PintandoPedidos />
-    {/* <PFooter /> */}
+    <PFooter />
   </div>
 );
 export default ViewWaiterMenu;
