@@ -52,13 +52,15 @@ const PintarProductos = () => {
             </button>
           </div>
           <div className={itemMenu.containerFlexIzq}>
-            {prodData.filter((p) => p.type === prodType).map((p) => (
+            {prodData.filter((p) => p.type === prodType).map((p,) => (
               <button className={itemMenu.listItemMenu} key={p.id} 
                 onClick={()=>{
                   const newProdOrder = addProduct(prodOrder, p);
                   setProdOrder(newProdOrder);
                 }}>
                 {p.name}
+                {' '}
+                {p.cant}
                 {' '}
                 {p.price}
               </button>

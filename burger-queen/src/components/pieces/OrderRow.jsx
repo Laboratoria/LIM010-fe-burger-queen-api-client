@@ -10,6 +10,7 @@ const OrderRow = (props) => {
       <td className={itemOrderTab.th}>{name}</td>
       <td className={itemOrderTab.th}>{cant}</td>
       <td className={itemOrderTab.th}>{price}</td>
+      {/* <td className={itemOrderTab.th}>{subtotal}</td> */}
       <td><button>Eliminar</button></td>
     </tr>
   );
