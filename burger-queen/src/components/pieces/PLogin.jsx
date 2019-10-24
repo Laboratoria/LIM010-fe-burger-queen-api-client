@@ -51,7 +51,6 @@ const PLogin = ({ history }) => {
         <p className={style1.mensajeContraseña}>¿Olvidaste tu contraseña?</p>
         <button type="submit" className={`btn btn-success ${style1.button}`} value="btn" data-testid="botonSubmit">LOGIN</button>
         {err && <p data-testid="mensajeError" className={style1.mensajeError}>{err}</p>}
-
       </form>
       {/* <button type="submit"><Link to="/Home">Login</Link></button>
       {email} */}

@@ -9,7 +9,7 @@ import OrderHead from './OrderHead';
 import itemOrderTable from '../styles/itemOrder.module.css';
 import OrderRow from './OrderRow.jsx';
 import addProduct from '../controllers/order.js';
-// const [prodData, setProdData] = useState([]);
+
 const PintarProductos = () => {
   const [prodData, setProdData] = useState([]);
   const [prodOrder, setProdOrder] = useState([]);
@@ -39,7 +39,7 @@ const PintarProductos = () => {
                 setProdType('desayuno');
               }}
             >
-            Desayuno
+              Desayuno
             </button>
             <button
               className={btnCategory.btnCategory}
@@ -48,13 +48,13 @@ const PintarProductos = () => {
                 setProdType('almuerzo');
               }}
             >
-            Almuerzo
+              Almuerzo
             </button>
           </div>
           <div className={itemMenu.containerFlexIzq}>
             {prodData.filter((p) => p.type === prodType).map((p) => (
-              <button className={itemMenu.listItemMenu} key={p.id} 
-                onClick={()=>{
+              <button className={itemMenu.listItemMenu} key={p.id}
+                onClick={() => {
                   const newProdOrder = addProduct(prodOrder, p);
                   setProdOrder(newProdOrder);
                 }}>
@@ -64,7 +64,6 @@ const PintarProductos = () => {
               </button>
             ))}
           </div>
-
         </div>
         <div>
           <form>
@@ -72,20 +71,20 @@ const PintarProductos = () => {
               <p className={lineaOrder.lineaOrder}>Pedido N° : </p>
             </div>
             <div className={lineaOrder.clientInput}>
-              <label>Cliente : </label>
+              <label>Cliente: </label>
               <input placeholder="Nombre del cliente" className={lineaOrder.nameInput} />
             </div>
             <div className={itemOrderTable.tableOrder}>
               <table>
-                  <OrderHead />
+                <OrderHead />
                 <tbody>
                   {prodOrder.map((p) => (
-                    <OrderRow producto={p} key={p.id}/>
+                    <OrderRow producto={p} key={p.id} listaProdOrder={prodOrder} setProductOrder={setProdOrder}/>
                   ))}
                 </tbody>
-               <tfoot>
-                <OrderTotal />
-               </tfoot>
+                <tfoot>
+                  <OrderTotal />
+                </tfoot>
               </table>
             </div>
             <div className={lineaOrder.footerSideOrder}>
