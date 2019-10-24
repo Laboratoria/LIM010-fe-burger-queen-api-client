@@ -1,7 +1,6 @@
 import React from 'react';
 import itemOrderTab from '../styles/itemOrder.module.css';
 import deleteProduct from '../controllers/eliminarProducto.js';
-
 const OrderRow = (props) => {
   // console.log(props);
   const producto = props.producto;
