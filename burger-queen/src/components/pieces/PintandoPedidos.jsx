@@ -9,7 +9,10 @@ import OrderHead from './OrderHead';
 import itemOrderTable from '../styles/itemOrder.module.css';
 import OrderRow from './OrderRow.jsx';
 import addProduct from '../controllers/order.js';
+<<<<<<< HEAD
 
+=======
+>>>>>>> a00fde87cfab1c36f96255717e56ec4c270ce7b0
 // const [prodData, setProdData] = useState([]);
 const PintarProductos = () => {
   const [prodData, setProdData] = useState([]);
