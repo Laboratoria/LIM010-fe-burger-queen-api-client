@@ -90,7 +90,7 @@ key={p.id}
                   ))}
                 </tbody>
                 <tfoot>
-                  <OrderTotal />
+                  <OrderTotal listaProdOrder={prodOrder} setProductOrder={setProdOrder}/>
                 </tfoot>
               </table>
             </div>
