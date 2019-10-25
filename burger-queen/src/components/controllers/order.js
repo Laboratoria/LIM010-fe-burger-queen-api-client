@@ -1,24 +1,17 @@
+
 const addProduct = (arrayProduct, item) => {
- 
-  item.cant= 0;
-  arrayProduct.find();
-  // const newArray = [...arrayProduct, item];
-  //   if(newArray[i].id!==item.id){
-  //       console.log('hola2');
-  //     }
-  // }
-  if(newArray.id !== item.id){
-    console.log('no son iguales los productos');
-    console.log(newArray);
-  } else {
-    console.log('son iguales los productos');
-    console.log(newArray);
-    newArray.cant = newArray.cant + 1;
+  if (arrayProduct.find((elemento) => elemento.id === item.id)) {
+    return arrayProduct.map((elem) => {
+      if (elem.id === item.id) {
+        return {
+          id: item.id, name: item.name, cant: elem.cant + 1, price: elem.price, subtotal: (elem.cant + 1) * elem.price,
+        };
+      }
+      return elem;
+    });
   }
-  
-
-  console.log(newArray)
-  return newArray;
+  return [...arrayProduct, {
+    id: item.id, name: item.name, cant: 1, price: item.price, subtotal: item.price,
+  }];
 };
-
 export default addProduct;
