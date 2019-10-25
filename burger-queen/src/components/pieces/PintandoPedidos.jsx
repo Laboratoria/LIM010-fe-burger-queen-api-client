@@ -9,11 +9,13 @@ import OrderHead from './OrderHead';
 import itemOrderTable from '../styles/itemOrder.module.css';
 import OrderRow from './OrderRow.jsx';
 import addProduct from '../controllers/order.js';
+// import addProductTotal from '../controllers/totalOrder.js';
 
 const PintarProductos = () => {
   const [prodData, setProdData] = useState([]);
   const [prodOrder, setProdOrder] = useState([]);
   const [prodType, setProdType] = useState('desayuno');
+  // const [totalOrder, setOrder] = useState({});
 
   const productos = (token) => {
     products(token).then((res) => {
@@ -53,12 +55,17 @@ const PintarProductos = () => {
           </div>
           <div className={itemMenu.containerFlexIzq}>
             {prodData.filter((p) => p.type === prodType).map((p) => (
-              <button className={itemMenu.listItemMenu} key={p.id}
+              <button
+className={itemMenu.listItemMenu}
+key={p.id}
                 onClick={() => {
                   const newProdOrder = addProduct(prodOrder, p);
                   setProdOrder(newProdOrder);
-                }}>
+                }}
+              >
                 {p.name}
+                {' '}
+                {p.cant}
                 {' '}
                 {p.price}
               </button>
@@ -79,7 +86,7 @@ const PintarProductos = () => {
                 <OrderHead />
                 <tbody>
                   {prodOrder.map((p) => (
-                    <OrderRow producto={p} key={p.id} listaProdOrder={prodOrder} setProductOrder={setProdOrder}/>
+                    <OrderRow producto={p} key={p.id} listaProdOrder={prodOrder} setProductOrder={setProdOrder} />
                   ))}
                 </tbody>
                 <tfoot>
