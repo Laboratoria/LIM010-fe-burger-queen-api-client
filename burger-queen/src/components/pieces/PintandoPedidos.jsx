@@ -77,7 +77,6 @@ const PintarProductos = () => {
             </div>
             <div className={lineaOrder.clientInput}>
               <p>Cliente: </p>
-              {/* <label> */}
               <input placeholder="Nombre del cliente" className={lineaOrder.nameInput} />
             </div>
             <div className={itemOrderTable.tableOrder}>
