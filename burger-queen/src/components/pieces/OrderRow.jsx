@@ -27,7 +27,6 @@ const OrderRow = (props) => {
         >
           Eliminar
         </button>
-
       </td>
     </tr>
   );
