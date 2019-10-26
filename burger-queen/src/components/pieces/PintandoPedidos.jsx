@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import products from '../controllers/products.js';
 import btnCategory from '../styles/btnCategory.module.css';
-import itemMenu from '../styles/itemMenu.module.css';
 import OrderTotal from './OrderTotal.jsx';
 import lineaOrder from '../styles/itemMenu.module.css';
 import containerPedido from '../styles/containerPedido.module.css';
@@ -9,13 +8,19 @@ import OrderHead from './OrderHead';
 import itemOrderTable from '../styles/itemOrder.module.css';
 import OrderRow from './OrderRow.jsx';
 import addProduct from '../controllers/order.js';
-// import addProductTotal from '../controllers/totalOrder.js';
+import postOrder from '../controllers/postOrder.js';
 
 const PintarProductos = () => {
   const [prodData, setProdData] = useState([]);
   const [prodOrder, setProdOrder] = useState([]);
   const [prodType, setProdType] = useState('desayuno');
-  // const [totalOrder, setOrder] = useState({});
+  const [nameClient, setNameClient] = useState('');
+  // const [orderClient, setOrderClient] = useState({});
+  // const [errOrder, setErrOrder] = useState('');
+
+  const FNameClient = (e)=>{
+    setNameClient(e.target.value);
+  };
 
   const productos = (token) => {
     products(token).then((res) => {
@@ -25,6 +30,14 @@ const PintarProductos = () => {
     });
   };
 
+  // const orders = (token) => {
+  //   postOrder(token, userId, client, products).then((res) => {
+  //     setOrderClient(res.orders);
+  //   }).catch((error) => {
+  //     console.log(error);
+  //   });
+  // };
+
   useEffect(() => {
     productos('el token');
   }, []);
@@ -33,7 +46,7 @@ const PintarProductos = () => {
     <>
       <div className={containerPedido.containerPedido}>
         <div className={containerPedido.containerListMenu}>
-          <div className={itemMenu.containerFlexIzq}>
+          <div className={lineaOrder.containerFlexIzq}>
             <button
               className={btnCategory.btnCategory}
               type="submit"
@@ -53,11 +66,12 @@ const PintarProductos = () => {
               Almuerzo
             </button>
           </div>
-          <div className={itemMenu.containerFlexIzq}>
+          <div className={lineaOrder.containerFlexIzq}>
             {prodData.filter((p) => p.type === prodType).map((p) => (
               <button
-className={itemMenu.listItemMenu}
-key={p.id}
+                type="button"
+                className={lineaOrder.listItemMenu}
+                key={p.id}
                 onClick={() => {
                   const newProdOrder = addProduct(prodOrder, p);
                   setProdOrder(newProdOrder);
@@ -73,13 +87,18 @@ key={p.id}
           </div>
         </div>
         <div>
-          <form>
+          <form onSubmit={(e)=>{
+            e.preventDefault();
+            postOrder().then(()=>{
+
+            })
+          }}>
             <div>
               <p className={lineaOrder.lineaOrder}>Pedido N° : </p>
             </div>
             <div className={lineaOrder.clientInput}>
-              <label>Cliente: </label>
-              <input placeholder="Nombre del cliente" className={lineaOrder.nameInput} />
+              <p >Cliente: </p>
+              <input placeholder="Nombre del cliente" className={lineaOrder.nameInput} value={nameClient} onChange={FNameClient}/>
             </div>
             <div className={itemOrderTable.tableOrder}>
               <table>
@@ -90,14 +109,15 @@ key={p.id}
                   ))}
                 </tbody>
                 <tfoot>
-                  <OrderTotal />
+                  <OrderTotal listaProdOrder={prodOrder} setProductOrder={setProdOrder} />
                 </tfoot>
               </table>
             </div>
             <div className={lineaOrder.footerSideOrder}>
-              <button className={lineaOrder.btnEnviar}>ENVIAR</button>
-              <button className={lineaOrder.btnEnviar}>CANCELAR</button>
+              <button type="submit" className={lineaOrder.btnEnviar}>ENVIAR</button>
+              <button type="submit" className={lineaOrder.btnEnviar}>CANCELAR</button>
             </div>
+            {/* <p>{errOrder}</p> */}
           </form>
         </div>
       </div>
