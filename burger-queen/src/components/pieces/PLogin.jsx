@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import CLogin from '../controllers/CLogin.js';
 import style1 from '../styles/Login.module.css';
 
+
 const PLogin = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,6 +18,7 @@ const PLogin = ({ history }) => {
   const FPassword = (e) => {
     setPassword(e.target.value);
   };
+
 
   return (
     <div className={`${style1.loginMargin} ${style1.align}`}>

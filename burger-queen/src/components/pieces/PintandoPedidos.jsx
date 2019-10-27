@@ -8,7 +8,9 @@ import OrderHead from './OrderHead';
 import itemOrderTable from '../styles/itemOrder.module.css';
 import OrderRow from './OrderRow.jsx';
 import addProduct from '../controllers/order.js';
-import postOrder from '../controllers/postOrder.js';
+import getUserId from '../controllers/getUserId.js';
+// import postOrder from '../controllers/postOrder.js';
+
 
 const PintarProductos = () => {
   const [prodData, setProdData] = useState([]);
@@ -18,7 +20,7 @@ const PintarProductos = () => {
   // const [orderClient, setOrderClient] = useState({});
   // const [errOrder, setErrOrder] = useState('');
 
-  const FNameClient = (e)=>{
+  const FNameClient = (e) => {
     setNameClient(e.target.value);
   };
 
@@ -30,6 +32,13 @@ const PintarProductos = () => {
     });
   };
 
+  const getDataUser = (token) => {
+    getUserId(token).then((dataUser) => {
+      console.log(dataUser);
+    }).catch((error) => {
+      console.log(error);
+    });
+  };
   // const orders = (token) => {
   //   postOrder(token, userId, client, products).then((res) => {
   //     setOrderClient(res.orders);
@@ -61,6 +70,7 @@ const PintarProductos = () => {
               type="submit"
               onClick={() => {
                 setProdType('almuerzo');
+                getDataUser('token');
               }}
             >
               Almuerzo
@@ -75,6 +85,7 @@ const PintarProductos = () => {
                 onClick={() => {
                   const newProdOrder = addProduct(prodOrder, p);
                   setProdOrder(newProdOrder);
+                  getDataUser('token');
                 }}
               >
                 {p.name}
@@ -87,18 +98,16 @@ const PintarProductos = () => {
           </div>
         </div>
         <div>
-          <form onSubmit={(e)=>{
+          <form onSubmit={(e) => {
             e.preventDefault();
-            postOrder().then(()=>{
-
-            })
-          }}>
+          }}
+          >
             <div>
               <p className={lineaOrder.lineaOrder}>Pedido N° : </p>
             </div>
             <div className={lineaOrder.clientInput}>
-              <p >Cliente: </p>
-              <input placeholder="Nombre del cliente" className={lineaOrder.nameInput} value={nameClient} onChange={FNameClient}/>
+              <p>Cliente: </p>
+              <input placeholder="Nombre del cliente" className={lineaOrder.nameInput} value={nameClient} onChange={FNameClient} />
             </div>
             <div className={itemOrderTable.tableOrder}>
               <table>
