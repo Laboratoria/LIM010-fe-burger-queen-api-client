@@ -8,11 +8,21 @@ import OrderHead from './OrderHead';
 import itemOrderTable from '../styles/itemOrder.module.css';
 import OrderRow from './OrderRow.jsx';
 import addProduct from '../controllers/order.js';
+import getUserId from '../controllers/getUserId.js';
+// import postOrder from '../controllers/postOrder.js';
+
 
 const PintarProductos = () => {
   const [prodData, setProdData] = useState([]);
   const [prodOrder, setProdOrder] = useState([]);
   const [prodType, setProdType] = useState('desayuno');
+  const [nameClient, setNameClient] = useState('');
+  // const [orderClient, setOrderClient] = useState({});
+  // const [errOrder, setErrOrder] = useState('');
+
+  const FNameClient = (e) => {
+    setNameClient(e.target.value);
+  };
 
   const productos = (token) => {
     products(token).then((res) => {
@@ -21,6 +31,21 @@ const PintarProductos = () => {
       console.log(error);
     });
   };
+
+  const getDataUser = (token) => {
+    getUserId(token).then((dataUser) => {
+      console.log(dataUser);
+    }).catch((error) => {
+      console.log(error);
+    });
+  };
+  // const orders = (token) => {
+  //   postOrder(token, userId, client, products).then((res) => {
+  //     setOrderClient(res.orders);
+  //   }).catch((error) => {
+  //     console.log(error);
+  //   });
+  // };
 
   useEffect(() => {
     productos('el token');
@@ -45,6 +70,7 @@ const PintarProductos = () => {
               type="submit"
               onClick={() => {
                 setProdType('almuerzo');
+                getDataUser('token');
               }}
             >
               Almuerzo
@@ -59,6 +85,7 @@ const PintarProductos = () => {
                 onClick={() => {
                   const newProdOrder = addProduct(prodOrder, p);
                   setProdOrder(newProdOrder);
+                  getDataUser('token');
                 }}
               >
                 {p.name}
@@ -71,13 +98,16 @@ const PintarProductos = () => {
           </div>
         </div>
         <div>
-          <form>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+          }}
+          >
             <div>
               <p className={lineaOrder.lineaOrder}>Pedido N° : </p>
             </div>
             <div className={lineaOrder.clientInput}>
               <p>Cliente: </p>
-              <input placeholder="Nombre del cliente" className={lineaOrder.nameInput} />
+              <input placeholder="Nombre del cliente" className={lineaOrder.nameInput} value={nameClient} onChange={FNameClient} />
             </div>
             <div className={itemOrderTable.tableOrder}>
               <table>
@@ -96,6 +126,7 @@ const PintarProductos = () => {
               <button type="submit" className={lineaOrder.btnEnviar}>ENVIAR</button>
               <button type="submit" className={lineaOrder.btnEnviar}>CANCELAR</button>
             </div>
+            {/* <p>{errOrder}</p> */}
           </form>
         </div>
       </div>

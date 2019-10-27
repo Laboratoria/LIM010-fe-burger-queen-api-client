@@ -1,4 +1,4 @@
-
+// controler agregar producto y contador
 const addProduct = (arrayProduct, item) => {
   if (arrayProduct.find((elemento) => elemento.id === item.id)) {
     return arrayProduct.map((elem) => {
