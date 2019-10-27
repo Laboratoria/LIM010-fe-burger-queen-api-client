@@ -8,17 +8,17 @@ import OrderHead from './OrderHead';
 import itemOrderTable from '../styles/itemOrder.module.css';
 import OrderRow from './OrderRow.jsx';
 import addProduct from '../controllers/order.js';
-import getUserId from '../controllers/getUserId.js';
-// import postOrder from '../controllers/postOrder.js';
-
+// import getUserId from '../controllers/getUserId.js';
+import postOrder from '../controllers/postOrder.js';
+import style1 from '../styles/Login.module.css';
 
 const PintarProductos = () => {
   const [prodData, setProdData] = useState([]);
   const [prodOrder, setProdOrder] = useState([]);
   const [prodType, setProdType] = useState('desayuno');
   const [nameClient, setNameClient] = useState('');
-  // const [orderClient, setOrderClient] = useState({});
-  // const [errOrder, setErrOrder] = useState('');
+  const [errOrder, setErrOrder] = useState('');
+  // const [userId, setUserId] = useState('');
 
   const FNameClient = (e) => {
     setNameClient(e.target.value);
@@ -26,30 +26,25 @@ const PintarProductos = () => {
 
   const productos = (token) => {
     products(token).then((res) => {
-      setProdData(res.products);
+      setProdData(res);
     }).catch((error) => {
       console.log(error);
     });
   };
 
-  const getDataUser = (token) => {
-    getUserId(token).then((dataUser) => {
-      console.log(dataUser);
-    }).catch((error) => {
-      console.log(error);
-    });
-  };
-  // const orders = (token) => {
-  //   postOrder(token, userId, client, products).then((res) => {
-  //     setOrderClient(res.orders);
+  // const getDataUser = (token) => {
+  //   getUserId(token).then((dataUser) => {
+  //     console.log(dataUser.id);
+  //     setUserId(dataUser.id);
+
   //   }).catch((error) => {
   //     console.log(error);
   //   });
   // };
-
   useEffect(() => {
     productos('el token');
   }, []);
+  // getDataUser('el token');
 
   return (
     <>
@@ -70,7 +65,7 @@ const PintarProductos = () => {
               type="submit"
               onClick={() => {
                 setProdType('almuerzo');
-                getDataUser('token');
+                // getDataUser('token');
               }}
             >
               Almuerzo
@@ -85,7 +80,7 @@ const PintarProductos = () => {
                 onClick={() => {
                   const newProdOrder = addProduct(prodOrder, p);
                   setProdOrder(newProdOrder);
-                  getDataUser('token');
+                  // getDataUser('token');
                 }}
               >
                 {p.name}
@@ -100,6 +95,13 @@ const PintarProductos = () => {
         <div>
           <form onSubmit={(e) => {
             e.preventDefault();
+            postOrder('el token', '1', nameClient, prodOrder).then((res) => {
+              console.log(res);
+              setNameClient("");
+              setProdOrder([]);
+            }).catch((error) => {
+              setErrOrder(error.message);
+            });
           }}
           >
             <div>
@@ -126,7 +128,7 @@ const PintarProductos = () => {
               <button type="submit" className={lineaOrder.btnEnviar}>ENVIAR</button>
               <button type="submit" className={lineaOrder.btnEnviar}>CANCELAR</button>
             </div>
-            {/* <p>{errOrder}</p> */}
+            {errOrder && <p className={style1.mensajeError}>{errOrder}</p>}
           </form>
         </div>
       </div>
