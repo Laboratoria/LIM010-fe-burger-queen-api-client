@@ -1,10 +1,17 @@
-const FLogin = (email, password) => (
-  fetch('http://localhost:5001/auth', {
-    method: 'POST',
+const putUser = (token, email, password, admin) => (
+  fetch('http://localhost:5001/users', {
+    method: 'PUT',
     headers: {
+      authorization: token,
       'Content-Type': 'application/json',
     },
-    body: { email, password },
+    body: {
+      email,
+      password,
+      roles: {
+        admin,
+      },
+    },
   })
     .then((respuesta) => {
       if (respuesta.status === 200) {
@@ -16,4 +23,4 @@ const FLogin = (email, password) => (
     })
 );
 
-export default FLogin;
+export default putUser;

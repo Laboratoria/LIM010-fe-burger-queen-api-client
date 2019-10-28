@@ -26,7 +26,7 @@ const PintarProductos = () => {
 
   const productos = (token) => {
     products(token).then((res) => {
-      setProdData(res);
+      setProdData(res.products);
     }).catch((error) => {
       console.log(error);
     });
@@ -96,8 +96,8 @@ const PintarProductos = () => {
           <form onSubmit={(e) => {
             e.preventDefault();
             postOrder('el token', '1', nameClient, prodOrder).then((res) => {
-              console.log(res);
-              setNameClient("");
+              console.log(res.orders);
+              setNameClient('');
               setProdOrder([]);
             }).catch((error) => {
               setErrOrder(error.message);
@@ -135,5 +135,4 @@ const PintarProductos = () => {
     </>
   );
 };
-
 export default PintarProductos;
