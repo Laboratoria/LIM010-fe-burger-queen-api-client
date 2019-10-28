@@ -95,7 +95,9 @@ const PintarProductos = () => {
         <div>
           <form onSubmit={(e) => {
             e.preventDefault();
-            postOrder('el token', '1', nameClient, prodOrder).then((res) => {
+            console.log(prodOrder);
+            console.log(prodOrder.map((elem) => ({ qty: elem.cant, product: elem })));
+            postOrder('el token', '1', nameClient, prodOrder.map((elem) => ({ product: elem.id, qty: elem.cant }))).then((res) => {
               console.log(res);
               setNameClient("");
               setProdOrder([]);
