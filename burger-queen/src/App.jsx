@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import ViewLogin from './components/pages/ViewLogin.jsx';
 import ViewWaiterMenu from './components/pages/ViewWaiterMenu.jsx';
+// import ViewAdminUser from './components/pages/ViewAdminUser.jsx';
 
 
 export default function App() {
