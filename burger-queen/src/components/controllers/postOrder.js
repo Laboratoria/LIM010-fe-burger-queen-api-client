@@ -1,6 +1,6 @@
 // const postOrder = (token, userId, client, products) => (
-const postOrder = ((token, userId, client, products) => (
-  fetch('http://localhost:5001/orders', {
+const postOrder = (token, userId, client, products) => (
+  fetch('http://localhost:5000/orders', {
     method: 'POST',
     headers: {
       uthorization: token,
@@ -16,6 +16,6 @@ const postOrder = ((token, userId, client, products) => (
       }
       return Promise.reject(new Error('Solicite credenciales con el administrador'));
     })
-));
+);
 
 export default postOrder;
