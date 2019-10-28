@@ -18,30 +18,26 @@ const PintandoOrders = () => {
 
     return (
     <>
-   <table>
+  {prodOrder.map((p) => (
+   <table key={p._id}>
     <thead>
         <tr>
-            <th>Cliente:</th>
-     		<th>Fecha:</th>
+            <th>Cliente:{p.client}</th>
+     		<th>Fecha:{p.dateEntry}</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td rowSpan="2">Ordenes</td>
-            <td>Estado:</td>
+            <td rowSpan="2">{p.products.map((p) => (
+              `${p.qty} ${p.product.name} `
+            ))}</td>
+            <td>Estado:{p.status}</td>
         </tr>
       <tr>
-        <td>Listo para servir</td>
+        <td><button type="button">Listo para servir</button></td>
         </tr>
     </tbody>
 </table>
-{prodOrder.map((p) => (
-  <button
-    type="button"
-    key={p._id}
-  >
-    {p.client}
-  </button>
 ))}
     </>
     );
