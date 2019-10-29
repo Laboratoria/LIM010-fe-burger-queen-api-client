@@ -1,46 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import order from '../controllers/getOrder.js';
+import React from 'react';
 
-const PintandoOrders = () => {
-    const [prodOrder, setProdOrder] = useState([]);
+const PintandoOrders = (props) => {
+  const listOrder = props.listOrder;
+  const {
+    _id, client, dateEntry, status,
+  } = listOrder;
+  // const startDate = new Date();
+  // const endDate = new Date();
 
-    const allOrders = (token) => {
-        order(token).then((res) => {
-            setProdOrder(res);
-        }).catch((error) => {
-          console.log(error);
-        });
-      };
-
-    useEffect(() => {
-      allOrders('el token');
-    }, []);
-
-    return (
+  return (
     <>
-  {prodOrder.map((p) => (
-   <table key={p._id}>
-    <thead>
-        <tr>
-            <th>Cliente:{p.client}</th>
-     		<th>Fecha:{p.dateEntry}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowSpan="2">{p.products.map((p) => (
-              `${p.qty} ${p.product.name} `
-            ))}</td>
-            <td>Estado:{p.status}</td>
-        </tr>
-      <tr>
-        <td><button type="button">Pending</button></td>
-        </tr>
-    </tbody>
-</table>
-))}
+
+      {/* {listOrder.map((p) => ( */}
+      <table key={_id}>
+        <thead>
+          <tr>
+            <th>
+                Cliente:
+              {client}
+            </th>
+            <th>
+                Fecha:
+              {dateEntry}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowSpan="2">
+              {listOrder.products.map((p) => (
+                `${p.qty} ${p.product.name} `
+              ))}
+
+            </td>
+            <td>
+Estado:
+              {status}
+            </td>
+          </tr>
+          <tr>
+            <td><button type="button">Completado</button></td>
+          </tr>
+        </tbody>
+      </table>
+      ))
     </>
-    );
-}
+  );
+};
 
 export default PintandoOrders;

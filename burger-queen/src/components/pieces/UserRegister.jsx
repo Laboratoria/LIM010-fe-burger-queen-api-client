@@ -3,23 +3,23 @@ import React, { useState, useEffect } from 'react';
 import UserListHead from './UserListHead.jsx';
 import UserListRow from './UserListRow.jsx';
 import getUserList from '../controllers/getUserList.js';
-// import postUser from '../controllers/postUser.js';
-import addUserList from '../controllers/addUser.js';
+import postUser from '../controllers/postUser.js';
+// import addUserList from '../controllers/addUser.js';
 // import products from '../controllers/products.js';
 
 const UserRegister = () => {
   const [users, setUsers] = useState([]);
-  const [addUser, setAddUser] = useState({});
+  // const [addUser, setAddUser] = useState({});
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const addEmail = (e) => {
-    setEmail(e.target.value);
-  };
+  // const addEmail = (e) => {
+  //   console.log(setEmail(e.target.value));
+  // };
 
-  const addPassword = (e) => {
-    setPassword(e.target.value);
-  };
+  // const addPassword = (e) => {
+  //   setPassword(e.target.value);
+  // };
 
   const usersList = (token) => {
     getUserList(token).then((res) => {
@@ -31,6 +31,13 @@ const UserRegister = () => {
       });
   };
 
+  const submit = (e) => {
+    e.preventDefault();
+    postUser('token', email, password, 'no');
+    setEmail('');
+    setPassword('');
+  };
+
 
   useEffect(() => {
     usersList('token');
@@ -38,8 +45,8 @@ const UserRegister = () => {
 
   return (
     <>
-      <form onSubmit={(e) => {
-        e.preventDefault();
+      <form onSubmit={(e) => submit(e)
+        // e.preventDefault();
         // postUser('token', email, password, 'no')
         //   .then((res) => {
         //     addEmail(res);
@@ -47,12 +54,12 @@ const UserRegister = () => {
         //   .catch((error) => {
         //     console.error(error);
         //   });
-      }}
+      }
       >
         <h1>Admin. de Usuarios</h1>
-        <input placeholder="Email" value={email} onChange={addEmail} />
+        <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <br />
-        <input placeholder="Password" value={password} onChange={addPassword} />
+        <input placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <br />
         <label>Administrador</label>
         <select>
@@ -64,11 +71,10 @@ const UserRegister = () => {
         <button
           type="button"
           onClick={() => {
-           
-            const newUser = addUserList(addUser, addUser);
-            setAddUser(newUser);
+            // addUserList(addUser, email);
 
-            console.log(addUser);
+
+            // console.log(addUser);
           }}
         >
 Guardar

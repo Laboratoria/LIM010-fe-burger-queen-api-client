@@ -5,7 +5,6 @@ import UserRegister from '../pieces/UserRegister.jsx';
 const ViewAdminUser = () => (
   <div>
     <UserRegister />
-    {/* <UserList /> */}
   </div>
 
 );
