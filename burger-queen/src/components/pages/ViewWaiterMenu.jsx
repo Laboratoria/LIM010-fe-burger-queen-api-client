@@ -12,9 +12,7 @@ import FilterStatusOrder from '../pieces/statusOrderKitchen.jsx';
 const ViewWaiterMenu = () => (
   <div>
     <PHeader />
-    {/* <PintandoPedidos /> */}
     <FilterStatusOrder />
-    {/* <PintandoListPedidos/> */}
     <PFooter />
   </div>
 );
