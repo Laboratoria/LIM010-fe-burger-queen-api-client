@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import logo from '../images/burger.png';
 import style from '../styles/Header.module.css';
+
 
 const PHeader = () => (
   <div className={style.headerMenuUno}>
@@ -13,9 +13,10 @@ const PHeader = () => (
       <label className={`glyphicon glyphicon-align-justify ${style.iconLabel}`} htmlFor="btnMenu" />
       <nav className={style.menu}>
         <ul>
-          <li className={style.itemMenu}><Link to="/Pedidos">PEDIDOS</Link></li>
-          <li className={style.itemMenu}><Link to="/ListaPedidos">LISTA DE PEDIDOS</Link></li>
-          <li className={style.itemMenu}><Link to="/CerrarSesion">CERRAR SESIÓN</Link></li>
+          <li className={style.itemMenu}><a href="/Pedidos">PEDIDOS</a></li>
+          <li className={style.itemMenu}><a href="/ListaPedidos">LISTA DE PEDIDOS</a></li>
+          <li className={style.itemMenu}><a href="/Cocinero">COCINERO</a></li>
+          <li className={style.itemMenu}><a href="/">CERRAR SESIÓN</a></li>
         </ul>
       </nav>
     </div>
