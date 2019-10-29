@@ -1,5 +1,5 @@
 const postUser = (token, email, password, admin) => (
-  fetch('http://localhost:5000/users', {
+  fetch('http://localhost:5001/users', {
     method: 'PUT',
     headers: {
       authorization: token,
