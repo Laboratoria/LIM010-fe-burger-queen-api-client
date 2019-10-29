@@ -34,7 +34,7 @@ const PintandoOrders = () => {
             <td>Estado:{p.status}</td>
         </tr>
       <tr>
-        <td><button type="button">Listo para servir</button></td>
+        <td><button type="button">Pending</button></td>
         </tr>
     </tbody>
 </table>

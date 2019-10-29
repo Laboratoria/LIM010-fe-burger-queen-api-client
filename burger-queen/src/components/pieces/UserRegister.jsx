@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import UserListHead from './UserListHead.jsx';
 import UserListRow from './UserListRow.jsx';
 import getUserList from '../controllers/getUserList.js';
-import putUser from '../controllers/putUser.js';
+// import postUser from '../controllers/postUser.js';
 import addUserList from '../controllers/addUser.js';
 // import products from '../controllers/products.js';
 
@@ -12,7 +12,6 @@ const UserRegister = () => {
   const [addUser, setAddUser] = useState({});
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [show, setShow] = useState(false);
 
   const addEmail = (e) => {
     setEmail(e.target.value);
@@ -41,13 +40,13 @@ const UserRegister = () => {
     <>
       <form onSubmit={(e) => {
         e.preventDefault();
-        putUser('token', email, password, 'no')
-          .then((res) => {
-            addEmail(res);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
+        // postUser('token', email, password, 'no')
+        //   .then((res) => {
+        //     addEmail(res);
+        //   })
+        //   .catch((error) => {
+        //     console.error(error);
+        //   });
       }}
       >
         <h1>Admin. de Usuarios</h1>
@@ -65,8 +64,8 @@ const UserRegister = () => {
         <button
           type="button"
           onClick={() => {
-            addEmail();
-            const newUser = addUserList(users, addUser);
+           
+            const newUser = addUserList(addUser, addUser);
             setAddUser(newUser);
 
             console.log(addUser);

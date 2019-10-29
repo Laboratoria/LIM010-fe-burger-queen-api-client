@@ -1,5 +1,5 @@
 const getUsers = (token) => (
-  fetch('http://localhost:5000/orders', {
+  fetch('http://localhost:5001/users', {
     method: 'GET',
     headers: {
       authorization: token,

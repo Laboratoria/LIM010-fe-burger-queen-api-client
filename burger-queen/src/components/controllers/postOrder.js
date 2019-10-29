@@ -1,9 +1,9 @@
 // const postOrder = (token, userId, client, products) => (
 const postOrder = (token, userId, client, products) => (
-  fetch('http://localhost:5000/orders', {
+  fetch('http://localhost:5001/orders', {
     method: 'POST',
     headers: {
-      uthorization: token,
+      authorization: token,
       'Content-Type': 'application/json',
     },
     body: { userId, client, products },

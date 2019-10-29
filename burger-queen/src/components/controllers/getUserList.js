@@ -1,5 +1,5 @@
-const products = (token) => (
-  fetch('http://localhost:5000/users', {
+const getUsersList = (token) => (
+  fetch('http://localhost:5001/users', {
     method: 'GET',
     headers: {
       authorization: token,
@@ -17,4 +17,4 @@ const products = (token) => (
     })
 );
 
-export default products;
+export default getUsersList;
