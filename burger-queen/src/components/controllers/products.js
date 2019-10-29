@@ -1,5 +1,5 @@
 const products = (token) => (
-  fetch('http://localhost:5001/products', {
+  fetch('http://localhost:5000/products', {
     method: 'GET',
     headers: {
         authorization: token,

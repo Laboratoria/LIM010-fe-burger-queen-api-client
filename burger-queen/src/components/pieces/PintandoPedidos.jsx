@@ -8,7 +8,7 @@ import OrderHead from './OrderHead';
 import itemOrderTable from '../styles/itemOrder.module.css';
 import OrderRow from './OrderRow.jsx';
 import addProduct from '../controllers/order.js';
-// import getUserId from '../controllers/getUserId.js';
+import getUserId from '../controllers/getUserId.js';
 import postOrder from '../controllers/postOrder.js';
 import style1 from '../styles/Login.module.css';
 
@@ -18,7 +18,7 @@ const PintarProductos = () => {
   const [prodType, setProdType] = useState('desayuno');
   const [nameClient, setNameClient] = useState('');
   const [errOrder, setErrOrder] = useState('');
-  // const [userId, setUserId] = useState('');
+  const [userId, setUserId] = useState('');
 
   const FNameClient = (e) => {
     setNameClient(e.target.value);
@@ -26,25 +26,25 @@ const PintarProductos = () => {
 
   const productos = (token) => {
     products(token).then((res) => {
-      setProdData(res.products);
+      setProdData(res);
     }).catch((error) => {
       console.log(error);
     });
   };
 
-  // const getDataUser = (token) => {
-  //   getUserId(token).then((dataUser) => {
-  //     console.log(dataUser.id);
-  //     setUserId(dataUser.id);
+  const getDataUser = (token) => {
+    getUserId(token).then((dataUser) => {
+      console.log(dataUser.id);
+      setUserId(dataUser.id);
 
-  //   }).catch((error) => {
-  //     console.log(error);
-  //   });
-  // };
+    }).catch((error) => {
+      console.log(error);
+    });
+  };
   useEffect(() => {
     productos('el token');
   }, []);
-  // getDataUser('el token');
+  getDataUser('el token');
 
   return (
     <>
@@ -95,9 +95,8 @@ const PintarProductos = () => {
         <div>
           <form onSubmit={(e) => {
             e.preventDefault();
-            console.log(prodOrder);
-            console.log(prodOrder.map((elem) => ({ qty: elem.cant, product: elem })));
-            postOrder('el token', '1', nameClient, prodOrder.map((elem) => ({ product: elem.id, qty: elem.cant }))).then((res) => {
+            console.log(prodOrder.map((elem) => ({ productId: elem.id, qty: elem.cant })));
+            postOrder('el token', userId, nameClient, prodOrder.map((elem) => ({ productId: elem.id, qty: elem.cant }))).then((res) => {
               console.log(res);
               setNameClient('');
               setProdOrder([]);

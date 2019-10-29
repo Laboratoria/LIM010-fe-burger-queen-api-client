@@ -1,5 +1,5 @@
-const putUser = (token, email, password, admin) => (
-  fetch('http://localhost:5001/users', {
+const postUser = (token, email, password, admin) => (
+  fetch('http://localhost:5000/users', {
     method: 'PUT',
     headers: {
       authorization: token,
@@ -23,4 +23,4 @@ const putUser = (token, email, password, admin) => (
     })
 );
 
-export default putUser;
+export default postUser;
