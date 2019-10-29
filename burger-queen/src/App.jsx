@@ -5,27 +5,24 @@ import {
   Route,
 } from 'react-router-dom';
 import ViewLogin from './components/pages/ViewLogin.jsx';
-// import ViewWaiterMenu from './components/pages/ViewWaiterMenu.jsx';
-// import PintandoListPedidos from './components/pieces/PintandoListPedidos.jsx';
+import ViewWaiterMenu from './components/pages/ViewWaiterMenu.jsx';
+import PintandoListPedidos from './components/pieces/PintandoListPedidos.jsx';
 // import ViewAdminUser from './components/pages/ViewAdminUser.jsx';
-import ViewKitchen from './components/pages/ViewKitchen.jsx';
-
+// import ViewKitchen from './components/pages/ViewKitchen.jsx';
+import StartView from './components/pages/StartView.jsx';
 
 export default function App() {
   return (
     <Router>
-      <div>
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/Home">
-            <ViewKitchen />
-          </Route>
-          <Route path="/" component={ViewLogin} />
-          <Route path="/Pedidos" component={ViewLogin} />
-          <Route path="/ListaPedidos" component={ViewLogin} />
-        </Switch>
-      </div>
+      {/* A <Switch> looks through its children <Route>s and
+          renders the first one that matches the current URL. */}
+      <Switch>
+        <Route path="/" component={ViewLogin} exact />
+        <Route path="/Home" component={StartView} />
+        <Route path="/Pedidos" component={ViewWaiterMenu} />
+        <Route path="/ListaPedidos" component={PintandoListPedidos} />
+        <Route path="/CerrarSesion" component={ViewLogin} />
+      </Switch>
     </Router>
   );
 }
