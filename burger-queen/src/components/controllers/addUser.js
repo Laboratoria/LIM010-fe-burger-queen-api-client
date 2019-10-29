@@ -1,7 +1,8 @@
+/* eslint-disable no-return-assign */
 // controler agregar producto y contador
-const addUserList = (arrayUser, item) => {
-  const newArray = [...arrayUser, item];
-  console.log(newArray);
-  return newArray;
-};
+const addUserList = (object, emailUser) =>
+
+  // const newArray = [...arrayUser, item];
+  // console.log(newArray);
+  object.email = emailUser;
 export default addUserList;

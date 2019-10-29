@@ -6,13 +6,14 @@ import PFooter from '../pieces/PFooter.jsx';
 // import ViewWaiterListPedidos from './ViewWaiterListPedidos.jsx';
 // import PintandoListPedidos from '../pieces/PintandoListPedidos.jsx';
 // import ListMenu from './ListMenu.jsx';
-import PintandoOrders from '../pieces/PintandoOrders.jsx';
+// import PintandoOrders from '../pieces/PintandoOrders.jsx';
+import FilterStatusOrder from '../pieces/statusOrderKitchen.jsx';
 
 const ViewWaiterMenu = () => (
   <div>
     <PHeader />
     {/* <PintandoPedidos /> */}
-    <PintandoOrders />
+    <FilterStatusOrder />
     {/* <PintandoListPedidos/> */}
     <PFooter />
   </div>
