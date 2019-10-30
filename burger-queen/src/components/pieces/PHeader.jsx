@@ -1,9 +1,9 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import logo from '../images/burger.png';
 import style from '../styles/Header.module.css';
 
-
-const PHeader = () => (
+const PHeader = ({ user }) => (
   <div className={style.headerMenuUno}>
     <div className={`${style.headerMenuDos} ${style.headerBarraMenu}`}>
       <img src={logo} alt="logo" className={style.img} />
@@ -13,9 +13,15 @@ const PHeader = () => (
       <label className={`glyphicon glyphicon-align-justify ${style.iconLabel}`} htmlFor="btnMenu" />
       <nav className={style.menu}>
         <ul>
-          <li className={style.itemMenu}><a href="/Pedidos">PEDIDOS</a></li>
-          <li className={style.itemMenu}><a href="/ListaPedidos">LISTA DE PEDIDOS</a></li>
-          <li className={style.itemMenu}><a href="/">CERRAR SESIÓN</a></li>
+          {/* {user.roles.admin && (
+            null
+          )}
+          {!user.roles.admin && ( */}
+            <li className={style.itemMenu}><Link to="/Pedidos">PEDIDOS</Link></li>
+            <li className={style.itemMenu}><Link to="/ListaPedidos">LISTA DE PEDIDOS</Link></li>
+            <li className={style.itemMenu}><Link to="/Cocinero">COCINERO</Link></li>
+            <li className={style.itemMenu}><Link to="/">CERRAR SESIÓN</Link></li>
+          {/* )} */}
         </ul>
       </nav>
     </div>
