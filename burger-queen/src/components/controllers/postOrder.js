@@ -1,4 +1,3 @@
-// const postOrder = (token, userId, client, products) => (
 const postOrder = (token, userId, client, products) => (
   fetch('http://localhost:5001/orders', {
     method: 'POST',
