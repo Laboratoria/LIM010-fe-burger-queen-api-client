@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import PintandoOrders from './PintandoOrders.jsx';
 import btnCategory from '../styles/btnCategory.module.css';
 import lineaOrder from '../styles/itemMenu.module.css';
 import containerPedido from '../styles/containerPedido.module.css';
