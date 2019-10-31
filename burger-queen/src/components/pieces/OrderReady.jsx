@@ -49,25 +49,19 @@ const OrderReady = () => {
                   </tr>
                   <tr>
                     <td rowSpan="2">
-                      {/* <button type="button" onClick={(e) => {
-                      e.preventDefault();
-                      putOrders('el token', order.userId, order.client, order.products, order.status).then((res) => {
-                        console.log(res);
-                      })
-                    }}>Listo para servir</button> */}
-
-                      <form onSubmit={(e) => {
-                        e.preventDefault();
-                        console.log(e.target.orden.value);
-                        putOrders('el token', order.userId, order.client, order.products, e.target.value).then((res) => {
-                          console.log(res);
-                        });
-                      }}>
-                        <p>Seleccione opción:</p>
-                        <input type="radio" name="orden" value="canceled" onClick={(e) => {console.log(e.target.value)}} />Canceled
-                        <input type="radio" name="orden" value="delivering" onClick={(e) => {console.log(e.target.value)}} />Delivering
-                        <input type="submit" value="Aceptar" />
-                      </form>
+                        <button type="button" name="orden" value="canceled" onClick={(e) => {
+                          console.log(e.target.value);
+                          putOrders('el token', order.userId, order.client, order.products, e.target.value).then((res) => {
+                            console.log(res);
+                          });
+                          }} 
+                          >Canceled</button>
+                        <button type="button" name="orden" value="delivering" onClick={(e) => {
+                          console.log(e.target.value);
+                          putOrders('el token', order.userId, order.client, order.products, e.target.value).then((res) => {
+                            console.log(res);
+                          });
+                          }} >Delivering</button>
                     </td>
                   </tr>
                 </tbody>
