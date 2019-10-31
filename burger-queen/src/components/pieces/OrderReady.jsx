@@ -71,8 +71,6 @@ const OrderReady = () => {
         </div>
       </div>
     </>
-
   );
 };
-
 export default OrderReady;

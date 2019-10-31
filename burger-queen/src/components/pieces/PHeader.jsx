@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../images/burger.png';
 import style from '../styles/Header.module.css';
 
@@ -17,11 +17,11 @@ const PHeader = ({ user }) => (
             null
           )}
           {!user.roles.admin && ( */}
-            <li className={style.itemMenu}><Link to="/Pedidos">PEDIDOS</Link></li>
-            <li className={style.itemMenu}><Link to="/ListaPedidos">LISTA DE PEDIDOS</Link></li>
-            <li className={style.itemMenu}><Link to="/Cocinero">COCINERO</Link></li>
-            <li className={style.itemMenu}><Link to="/Administrador">ADMINISTRADOR</Link></li>
-            <li className={style.itemMenu}><Link to="/">CERRAR SESIÓN</Link></li>
+          <li className={style.itemMenu}><Link to="/Pedidos">PEDIDOS</Link></li>
+          <li className={style.itemMenu}><Link to="/ListaPedidos">LISTA DE PEDIDOS</Link></li>
+          <li className={style.itemMenu}><Link to="/Cocinero">COCINERO</Link></li>
+          <li className={style.itemMenu}><Link to="/Usuarios">USUARIOS</Link></li>
+          <li className={style.itemMenu}><Link to="/">CERRAR SESIÓN</Link></li>
           {/* )} */}
         </ul>
       </nav>

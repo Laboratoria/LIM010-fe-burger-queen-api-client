@@ -25,7 +25,7 @@ export default function App() {
         <Route path="/Pedidos" component={ViewWaiterMenu} />
         <Route path="/ListaPedidos" component={ViewListOrdersWaiter} />
         <Route path="/Cocinero" component={ViewKitchen} />
-        <Route path="/Administrador" component={ViewAdminUser} />
+        <Route path="/Usuarios" component={ViewAdminUser} />
         <Route path="/CerrarSesion" component={ViewLogin} />
       </Switch>
     </Router>
