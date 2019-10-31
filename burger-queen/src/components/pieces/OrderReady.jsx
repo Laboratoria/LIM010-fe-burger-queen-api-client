@@ -3,6 +3,8 @@ import btnCategory from '../styles/btnCategory.module.css';
 import lineaOrder from '../styles/itemMenu.module.css';
 import containerPedido from '../styles/containerPedido.module.css';
 import order from '../controllers/getOrder.js';
+import putOrders from '../controllers/putOrders';
+import style from '../styles/tableOrders.module.css';
 
 
 const OrderReady = () => {
@@ -19,6 +21,13 @@ const OrderReady = () => {
     });
   };
 
+  const capturarValor = (e) =>{
+      e.preventDefault();
+      putOrders('el token', order.userId, order.client, order.products, order.target.value).then((res) => {
+       console.log(res);
+      });
+  }
+
   useEffect(() => {
     allOrderReady('el token');
   }, []);
@@ -28,18 +37,48 @@ const OrderReady = () => {
       <div className={containerPedido.containerPedido}>
         <div className={containerPedido.containerListMenu}>
           <div className={lineaOrder.containerFlexIzq}>
-            <button className={btnCategory.btnCategory} type="submit" onClick={() => { setStatusOrders('delivering') }}>Para Servir</button>
-            <button className={btnCategory.btnCategory} type="submit" onClick={() => { setStatusOrders('pending') }}>Entregados</button>
+            <button className={btnCategory.btnCategory} type="submit" onClick={() => { setStatusOrders('pending') }}>Listos para Servir</button>
+            <button className={btnCategory.btnCategory} type="submit" onClick={() => { setStatusOrders('delivering') }}>Entregados</button>
           </div>
           <div className={lineaOrder.containerFlexIzq}>
             {arrayOrderReady.filter((orders) => orders.status === statusOrders).map((order) => (
-              <div className={lineaOrder.listItemMenu} key={order._id}>
-                <p>{order.dateEntry}</p>
-                <p>fecha finalizado</p>
-                <p>{order.client}</p>
-                <p>{order.products.map((p) => (`${p.qty} ${p.product.name} `))}</p>
-                <button>Entregar</button>
-              </div>
+              <table key={order._id} className={style.table}>
+                <thead>
+                  <tr>
+                    <th>Cliente:{order.client}</th>
+                    <th>Fecha:{order.dateEntry}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td rowSpan="2">{order.products.map((p) => (`${p.qty} ${p.product.name} `))}</td>
+                    <td>Estado:{order.status}</td>
+                  </tr>
+                  <tr>
+                    <td rowSpan="2">
+                      {/* <button type="button" onClick={(e) => {
+                      e.preventDefault();
+                      putOrders('el token', order.userId, order.client, order.products, order.status).then((res) => {
+                        console.log(res);
+                      })
+                    }}>Listo para servir</button> */}
+
+<form onSubmit={(e) => {
+                        e.preventDefault();
+                        console.log(e.target.orden.value);
+                        putOrders('el token', order.userId, order.client, order.products, e.target.value).then((res) => {
+                          console.log(res);
+                        });
+                      }}>
+                        <p>Seleccione opción:</p>
+                        <button type="radio" name="orden" value="canceled" onClick={(e) => {console.log(e.target.value)}} >Canceled</button>
+                        <button type="radio" name="orden" value="delivering" onClick={(e) => {console.log(e.target.value)}} >Delivering</button>
+                        <input type="submit" value="Aceptar" />
+                      </form>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             ))}
           </div>
         </div>
