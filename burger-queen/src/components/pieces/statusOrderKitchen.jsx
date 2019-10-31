@@ -60,7 +60,7 @@ const FilterStatusOrder = () => {
           <div className={lineaOrder.containerFlexIzq}>
             {
 				      prodOrder.filter((o) => o.status === typeOrderStatus).map((orders) => (
-				        // <PintandoOrders listOrder={orders} key={orders._id} />
+
   <div  key={orders._id} >
     <p>{orders.client}</p>
     <p>{orders.dateEntry}</p>
