@@ -56,19 +56,18 @@ const OrderReady = () => {
                       })
                     }}>Listo para servir</button> */}
 
-                    <form onSubmit={(e) => {
-                                e.preventDefault();
-                                putOrders('el token', order.userId, order.client, order.products, order.status).then((res) => {
-                                console.log(res);
-                                });
-                              }}>
-                    <p>Seleccione opción:</p>
-                      <input type="radio" value="pending"/>Pending
-                      <input type="radio" value="canceled"/>Canceled
-                      <input type="radio" value="delivering"/>Delivering
-                      <input type="radio" value="delivered"/>Delivered
-                      <input type="submit" value="Aceptar"/>
-                    </form>
+                      <form onSubmit={(e) => {
+                        e.preventDefault();
+                        console.log(e.target.orden.value);
+                        putOrders('el token', order.userId, order.client, order.products, e.target.value).then((res) => {
+                          console.log(res);
+                        });
+                      }}>
+                        <p>Seleccione opción:</p>
+                        <input type="radio" name="orden" value="canceled" onClick={(e) => {console.log(e.target.value)}} />Canceled
+                        <input type="radio" name="orden" value="delivering" onClick={(e) => {console.log(e.target.value)}} />Delivering
+                        <input type="submit" value="Aceptar" />
+                      </form>
                     </td>
                   </tr>
                 </tbody>
