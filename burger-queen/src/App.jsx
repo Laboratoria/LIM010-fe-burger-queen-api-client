@@ -12,6 +12,7 @@ import ViewWaiterMenu from './components/pages/ViewWaiterMenu.jsx';
 import StartView from './components/pages/StartView.jsx';
 import ViewListOrdersWaiter from './components/pages/ViewListOrdersWaiter.jsx';
 import ViewKitchen from './components/pages/ViewKitchen.jsx';
+import ViewAdminUser from './components/pages/ViewAdminUser.jsx';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/Pedidos" component={ViewWaiterMenu} />
         <Route path="/ListaPedidos" component={ViewListOrdersWaiter} />
         <Route path="/Cocinero" component={ViewKitchen} />
+        <Route path="/Usuarios" component={ViewAdminUser} />
         <Route path="/CerrarSesion" component={ViewLogin} />
       </Switch>
     </Router>

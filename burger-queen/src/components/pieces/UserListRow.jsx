@@ -1,4 +1,5 @@
 import React from 'react';
+import deleteUsers from '../controllers/deleteUser.js';
 
 
 const UserListRow = (props) => {
@@ -9,7 +10,18 @@ const UserListRow = (props) => {
       <td>{email}</td>
       <td>{password}</td>
       <td>{roles.admin}</td>
-      <td><button>Eliminar</button></td>
+      <td>
+        <button
+          type="submit"
+          onClick={() => {
+            deleteUsers('token').then((res) => { console.log(res); });
+          }}
+        >
+Eliminar
+
+        </button>
+
+      </td>
       <td><button>Editar</button></td>
     </tr>
   );

@@ -21,12 +21,12 @@ const OrderReady = () => {
     });
   };
 
-  const capturarValor = (e) =>{
-      e.preventDefault();
-      putOrders('el token', order.userId, order.client, order.products, order.target.value).then((res) => {
-       console.log(res);
-      });
-  }
+  // const capturarValor = (e) =>{
+  //     e.preventDefault();
+  //     putOrders('el token', order.userId, order.client, order.products, order.target.value).then((res) => {
+  //      console.log(res);
+  //     });
+  // }
 
   useEffect(() => {
     allOrderReady('el token');
@@ -37,22 +37,31 @@ const OrderReady = () => {
       <div className={containerPedido.containerPedido}>
         <div className={containerPedido.containerListMenu}>
           <div className={lineaOrder.containerFlexIzq}>
-            <button className={btnCategory.btnCategory} type="submit" onClick={() => { setStatusOrders('pending') }}>Listos para Servir</button>
-            <button className={btnCategory.btnCategory} type="submit" onClick={() => { setStatusOrders('delivering') }}>Entregados</button>
+            <button className={btnCategory.btnCategory} type="submit" onClick={() => { setStatusOrders('pending'); }}>Listos para Servir</button>
+            <button className={btnCategory.btnCategory} type="submit" onClick={() => { setStatusOrders('delivering'); }}>Entregados</button>
           </div>
           <div className={lineaOrder.containerFlexIzq}>
             {arrayOrderReady.filter((orders) => orders.status === statusOrders).map((order) => (
               <table key={order._id} className={style.table}>
                 <thead>
                   <tr>
-                    <th>Cliente:{order.client}</th>
-                    <th>Fecha:{order.dateEntry}</th>
+                    <th>
+Cliente:
+{order.client}
+</th>
+                    <th>
+Fecha:
+{order.dateEntry}
+</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td rowSpan="2">{order.products.map((p) => (`${p.qty} ${p.product.name} `))}</td>
-                    <td>Estado:{order.status}</td>
+                    <td>
+Estado:
+{order.status}
+</td>
                   </tr>
                   <tr>
                     <td rowSpan="2">
@@ -63,18 +72,19 @@ const OrderReady = () => {
                       })
                     }}>Listo para servir</button> */}
 
-<form onSubmit={(e) => {
-                        e.preventDefault();
-                        console.log(e.target.orden.value);
-                        putOrders('el token', order.userId, order.client, order.products, e.target.value).then((res) => {
-                          console.log(res);
-                        });
-                      }}>
-                        <p>Seleccione opción:</p>
-                        <button type="radio" name="orden" value="canceled" onClick={(e) => {console.log(e.target.value)}} >Canceled</button>
-                        <button type="radio" name="orden" value="delivering" onClick={(e) => {console.log(e.target.value)}} >Delivering</button>
-                        <input type="submit" value="Aceptar" />
-                      </form>
+                      <form onSubmit={(e) => {
+  e.preventDefault();
+  console.log(e.target.orden.value);
+  putOrders('el token', order.userId, order.client, order.products, e.target.value).then((res) => {
+    console.log(res);
+  });
+}}
+>
+  <p>Seleccione opción:</p>
+  <button type="radio" name="orden" value="canceled" onClick={(e) => { console.log(e.target.value) ;}}>Canceled</button>
+  <button type="radio" name="orden" value="delivering" onClick={(e) => { console.log(e.target.value); }}>Delivering</button>
+  <input type="submit" value="Aceptar" />
+</form>
                     </td>
                   </tr>
                 </tbody>
