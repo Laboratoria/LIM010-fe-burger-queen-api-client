@@ -1,6 +1,6 @@
-const postUser = (token, email, password, admin) => (
+const postUser = (token, email, password, roles) => (
   fetch('http://localhost:5001/users', {
-    method: 'PUT',
+    method: 'POST',
     headers: {
       authorization: token,
       'Content-Type': 'application/json',
@@ -8,18 +8,22 @@ const postUser = (token, email, password, admin) => (
     body: {
       email,
       password,
-      roles: {
-        admin,
-      },
+      roles,
     },
   })
     .then((respuesta) => {
       if (respuesta.status === 200) {
         return respuesta.json();
       } if (respuesta.status === 400) {
-        return Promise.reject(new Error('Ingrese su usuario y/o contraseña'));
+        return Promise.reject(new Error('No se proveen `email` o `password` o ninguno de los dos'));
       }
-      return Promise.reject(new Error('Solicite credenciales con el administrador'));
+      if (respuesta.status === 401) {
+        return Promise.reject(new Error('No hay cabecera de autenticación'));
+      }
+      if (respuesta.status === 403) {
+        return Promise.reject(new Error('ya existe usuaria con ese `email`'));
+      }
+      return Promise.reject(new Error(respuesta.statusText));
     })
 );
 
