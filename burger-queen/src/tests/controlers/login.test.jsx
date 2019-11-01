@@ -8,7 +8,7 @@ afterEach(() => {
 describe('Traer token',  () => {
     it('Have to get token', async(done) => {
       fetchMock
-        .post('http://localhost:5000/auth', { status: 200, body: { token: 'abcjdefghi' } });
+        .post('http://localhost:5001/auth', { status: 200, body: { token: 'abcjdefghi' } });
 		Flogin('mesero@gmail.com','12345678')
         .then( respuesta => {
           expect(respuesta.token).toBe('abcjdefghi')
@@ -18,7 +18,7 @@ describe('Traer token',  () => {
     
     it('Have to get token error 400', async(done) => {
         fetchMock
-          .post('http://localhost:5000/auth', 400)
+          .post('http://localhost:5001/auth', 400)
         Flogin('aaaaa','123456')
            .catch( err => {
              expect(err.message).toBe('Ingrese su usuario y/o contraseña')
