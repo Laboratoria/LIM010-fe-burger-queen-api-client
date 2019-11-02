@@ -61,18 +61,40 @@ const FilterStatusOrder = () => {
             {
 				      prodOrder.filter((o) => o.status === typeOrderStatus).map((orders) => (
 
-  <div  key={orders._id} >
+  <div key={orders._id}>
     <p>{orders.client}</p>
     <p>{orders.dateEntry}</p>
     <p>{orders.status}</p>
-    <button type="submit" name="order" value="canceled" onClick={(e) => {  putOrders('el token', orders.userId, orders.client, orders.products, e.target.value).then((res) => {
-        console.log(res);
-      });
-     }}> Cancelar</button>
-    <button type="submit" name="order" value="delivering" onClick={(e) => {  putOrders('el token', orders.userId, orders.client, orders.products, e.target.value).then((res) => {
-        console.log(res);
-      });
-     }}>  Entregar</button>
+    <button
+      type="submit"
+      name="order"
+      value="canceled"
+      onClick={(e) => {
+        console.log(e.target.value);
+        putOrders('el token', orders.userId, orders.client, orders.products, e.target.value).then((res) => {
+          console.log(res);
+        });
+      }}
+    >
+      {' '}
+Cancelar
+
+    </button>
+    <button
+      type="submit"
+      name="order"
+      value="delivering"
+      onClick={(e) => {
+        console.log(e.target.value);
+        putOrders('el token', orders.userId, orders.client, orders.products, e.target.value).then((res) => {
+          console.log(res);
+        });
+      }}
+    >
+      {' '}
+Entregar
+
+    </button>
   </div>
 				      ))
 }

@@ -21,9 +21,9 @@ const OrderReady = () => {
     });
   };
 
-  useEffect(() => {
+  setInterval(useEffect(() => {
     allOrderReady('el token');
-  }, []);
+  }, []), 1000);
 
   return (
     <>
@@ -49,19 +49,18 @@ const OrderReady = () => {
                   </tr>
                   <tr>
                     <td rowSpan="2">
-                        <button type="button" name="orden" value="canceled" onClick={(e) => {
-                          console.log(e.target.value);
-                          putOrders('el token', order.userId, order.client, order.products, e.target.value).then((res) => {
-                            console.log(res);
-                          });
-                          }} 
-                          >Canceled</button>
-                        <button type="button" name="orden" value="delivering" onClick={(e) => {
-                          console.log(e.target.value);
-                          putOrders('el token', order.userId, order.client, order.products, e.target.value).then((res) => {
-                            console.log(res);
-                          });
-                          }} >Delivering</button>
+                      <button type="button" name="orden" onClick={(e) => {
+                        putOrders('el token', order.userId, order.client, order.products, 'canceled').then((res) => {
+                          console.log(res);
+                        });
+                      }}
+                      >Canceled</button>
+                      <button type="button" name="orden" onClick={(e) => {
+                        putOrders('el token', order.userId, order.client, order.products, 'delivering').then((res) => {
+                          console.log(res);
+                        });
+                      }}
+                      >Delivering</button>
                     </td>
                   </tr>
                 </tbody>
