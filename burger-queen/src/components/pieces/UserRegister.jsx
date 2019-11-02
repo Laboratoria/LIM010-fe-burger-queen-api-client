@@ -68,15 +68,7 @@ const UserRegister = () => {
         </select>
         {' '}
         <br />
-        <button
-          type="button"
-          onClick={() => {
-            // addUserList(addUser, email);
-
-
-            // console.log(addUser);
-          }}
-        >
+        <button>
 Guardar
 
         </button>
@@ -88,7 +80,7 @@ Guardar
           </thead>
           <tbody>
             {
-              users.map((user) => (<UserListRow users={user} />))
+              users.map((user) => (<UserListRow usersAll={user} />))
 }
           </tbody>
         </table>

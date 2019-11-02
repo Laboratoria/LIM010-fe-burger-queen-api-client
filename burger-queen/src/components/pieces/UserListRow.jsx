@@ -1,10 +1,13 @@
 import React from 'react';
 import deleteUsers from '../controllers/deleteUser.js';
+import putUser from '../controllers/putUser.js';
 
 
 const UserListRow = (props) => {
-  const users = props.users;
-  const { email, password, roles } = users;
+  const users = props.usersAll;
+  const {
+    email, password, roles, _id,
+  } = users;
   return (
     <tr colSpan="5">
       <td>{email}</td>
@@ -14,15 +17,32 @@ const UserListRow = (props) => {
         <button
           type="submit"
           onClick={() => {
-            deleteUsers('token').then((res) => { console.log(res); });
+            console.log(_id);
+            deleteUsers('token', _id).then((res) => {
+              console.log(res);
+              alert(`"desea eliminar al usuario?" ${res.email}`);
+            });
           }}
         >
 Eliminar
+        </button>
+
+      </td>
+      <td>
+        <button
+          type="submit"
+          onClick={() => {
+            console.log(email);
+            putUser('token', email, password, roles.admin).then((res) => {
+              console.log(res);
+            });
+          }}
+        >
+Editar
 
         </button>
 
       </td>
-      <td><button>Editar</button></td>
     </tr>
   );
 };
