@@ -36,7 +36,6 @@ const PintarProductos = () => {
     getUserId(token).then((dataUser) => {
       console.log(dataUser.id);
       setUserId(dataUser.id);
-
     }).catch((error) => {
       console.log(error);
     });
@@ -105,9 +104,9 @@ const PintarProductos = () => {
             });
           }}
           >
-            <div>
-              <p className={lineaOrder.lineaOrder}>Pedido N° : </p>
-            </div>
+            {/* <div> */}
+            <p className={lineaOrder.lineaOrder}>Pedido</p>
+            {/* </div> */}
             <div className={lineaOrder.clientInput}>
               <p>Cliente: </p>
               <input placeholder="Nombre del cliente" className={lineaOrder.nameInput} value={nameClient} onChange={FNameClient} />

@@ -6,12 +6,9 @@ import PFooter from '../pieces/PFooter.jsx';
 
 const StartView = () => (
   <>
-    <div>
-      <PHeader />
-      {/* <img src={logo} alt="logo" className={styles.img} /> */}
-      <PFooter />
-    </div>
+    <PHeader />
+    {/* <img src={logo} alt="logo" className={styles.img} /> */}
+    <PFooter />
   </>
 );
-
 export default StartView;

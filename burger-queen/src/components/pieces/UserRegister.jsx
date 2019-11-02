@@ -4,24 +4,23 @@ import UserListHead from './UserListHead.jsx';
 import UserListRow from './UserListRow.jsx';
 import getUserList from '../controllers/getUserList.js';
 import postUser from '../controllers/postUser.js';
+// import addUserList from '../controllers/addUser.js';
+// import products from '../controllers/products.js';
 
 const UserRegister = () => {
   const [users, setUsers] = useState([]);
   // const [addUser, setAddUser] = useState({});
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [administrator, setAdministrator] = useState('');
 
-  const Femail = (e) => {
-    setEmail(e.target.value);
-  };
-  const Fpassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  // const Fadministrator = (e) => {
-  //   setAdministrator(e.target.value);
+  // const addEmail = (e) => {
+  //   console.log(setEmail(e.target.value));
   // };
+
+  // const addPassword = (e) => {
+  //   setPassword(e.target.value);
+  // };
+
   const usersList = (token) => {
     getUserList(token).then((res) => {
       setUsers(res.users);
@@ -58,23 +57,20 @@ const UserRegister = () => {
       }
       >
         <h1>Admin. de Usuarios</h1>
-        <input placeholder="Email" value={email} onChange={Femail} />
+        <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <br />
-        <input placeholder="Password" value={password} onChange={Fpassword} />
+        <input placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <br />
-        <p>Administrador</p>
+        <label>Administrador</label>
         <select>
           <option value="Si">Si</option>
           <option value="No">No</option>
         </select>
         {' '}
         <br />
-        <button
-          type="button"
-          onClick={() => {
-          }}
-        >
-        Guardar
+        <button>
+Guardar
+
         </button>
       </form>
       <div>
@@ -84,8 +80,8 @@ const UserRegister = () => {
           </thead>
           <tbody>
             {
-              users.map((user) => (<UserListRow users={user} />))
-              }
+              users.map((user) => (<UserListRow usersAll={user} />))
+}
           </tbody>
         </table>
       </div>

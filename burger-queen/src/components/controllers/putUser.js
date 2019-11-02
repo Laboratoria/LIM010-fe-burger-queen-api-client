@@ -1,11 +1,17 @@
-const deleteUsers = (token, userId) => (
+const putUser = (token, email, password, admin) => (
   fetch('http://localhost:5001/users', {
-    method: 'DELETE',
+    method: 'PUT',
     headers: {
       authorization: token,
       'Content-Type': 'application/json',
     },
-    body: { userId },
+    body: {
+      email,
+      password,
+      roles: {
+        admin,
+      },
+    },
   })
     .then((respuesta) => {
       if (respuesta.status === 200) {
@@ -17,4 +23,4 @@ const deleteUsers = (token, userId) => (
     })
 );
 
-export default deleteUsers;
+export default putUser;
