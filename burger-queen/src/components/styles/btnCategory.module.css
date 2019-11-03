@@ -1,10 +1,21 @@
 .btnCategory {
-  padding: 5%;
+  padding: 1%;
   color: #F1F1F1;
   background-color:#c51230;
   border-radius: 15px;
   border-style:none;
-  margin:10px;
+  margin:5px 20px;
   flex:1;
   font-weight: bold;
 }
+
+.btnCategory:hover{
+  background: rgb(167, 66, 83);
+}
+
+@media (min-width:768px) {
+	.btnCategory{
+    padding: 3%;
+    margin: 10px 20px;
+	}
+  }

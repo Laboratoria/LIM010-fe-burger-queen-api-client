@@ -1,19 +1,26 @@
 import React from 'react';
-import totalOrder from '../styles/itemMenu.module.css';
+import itemOrderTab from '../styles/itemOrder.module.css';
 
 const OrderTotal = (props) => {
-const prodOrder = props.listaProdOrder;
-// const setProdOrder = props.setProductOrder;
+  const prodOrder = props.listaProdOrder;
+  // const setProdOrder = props.setProductOrder;
 
-const totalProd=(arrayProduct)=>{
-  const reducer = (sum, array) => sum + array.subtotal;
-  const totalProduct = arrayProduct.reduce(reducer, 0);
-  return totalProduct;
-};
+  const totalProd = (arrayProduct) => {
+    const reducer = (sum, array) => sum + array.subtotal;
+    const totalProduct = arrayProduct.reduce(reducer, 0);
+    return totalProduct;
+  };
 
-  return(
-    <tr>
-      <td className={totalOrder.totalOrder}>Total S/{totalProd(prodOrder)} </td>
+  return (
+    <tr className={itemOrderTab.txtTable}>
+      <td className={itemOrderTab.td} />
+      <td className={itemOrderTab.td} />
+      <td className={itemOrderTab.td} />
+      <td className={`${itemOrderTab.td} ${itemOrderTab.txtTotal}`}>
+Total S/.
+        {totalProd(prodOrder)}
+        {' '}
+      </td>
     </tr>
   );
 };

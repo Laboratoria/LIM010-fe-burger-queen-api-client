@@ -11,6 +11,9 @@ import addProduct from '../controllers/order.js';
 import getUserId from '../controllers/getUserId.js';
 import postOrder from '../controllers/postOrder.js';
 import style1 from '../styles/Login.module.css';
+import productsImg from '../images/cafeAmericano.jpg';
+import itemMenu from '../styles/itemMenu.module.css';
+// import styles1 from '../styles/Login.module.css';
 
 const PintarProductos = () => {
   const [prodData, setProdData] = useState([]);
@@ -64,7 +67,6 @@ const PintarProductos = () => {
               type="submit"
               onClick={() => {
                 setProdType('almuerzo');
-                // getDataUser('token');
               }}
             >
               Almuerzo
@@ -74,7 +76,8 @@ const PintarProductos = () => {
             {prodData.filter((p) => p.type === prodType).map((p) => (
               <button
                 type="button"
-                className={lineaOrder.listItemMenu}
+                // className={lineaOrder.listItemMenu}
+                className={`${lineaOrder.listItemMenu} ${itemMenu.containerFlexIzq} ${itemMenu.flexContainerItem}`}
                 key={p.id}
                 onClick={() => {
                   const newProdOrder = addProduct(prodOrder, p);
@@ -82,16 +85,23 @@ const PintarProductos = () => {
                   // getDataUser('token');
                 }}
               >
-                {p.name}
-                {' '}
-                {p.cant}
-                {' '}
-                {p.price}
+                <div className={itemMenu.containerItemProduc}>
+                  <img src={productsImg} alt="products" className={itemMenu.imgMenu} />
+                </div>
+                <div className={itemMenu.containerItemProduc}>
+                  <p>
+                    {p.name}
+                    {' '}
+                  </p>
+                </div>
+                <div className={itemMenu.containerItemProduc}>
+                  <p>{`S/. ${p.price}`}</p>
+                </div>
               </button>
             ))}
           </div>
         </div>
-        <div>
+        <div className={containerPedido.containerListMenu}>
           <form onSubmit={(e) => {
             e.preventDefault();
             console.log(prodOrder.map((elem) => ({ productId: elem.id, qty: elem.cant })));
@@ -105,14 +115,14 @@ const PintarProductos = () => {
           }}
           >
             {/* <div> */}
-            <p className={lineaOrder.lineaOrder}>Pedido</p>
+            <p className={lineaOrder.lineaOrder}>Order N°001</p>
             {/* </div> */}
             <div className={lineaOrder.clientInput}>
-              <p>Cliente: </p>
+              {/* <p>Cliente: </p> */}
               <input placeholder="Nombre del cliente" className={lineaOrder.nameInput} value={nameClient} onChange={FNameClient} />
             </div>
             <div className={itemOrderTable.tableOrder}>
-              <table>
+              <table className={itemOrderTable.table}>
                 <OrderHead />
                 <tbody>
                   {prodOrder.map((p) => (
