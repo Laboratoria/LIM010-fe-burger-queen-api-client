@@ -1,0 +1,21 @@
+.border {
+    border: 1px solid black;
+}
+.headerListOrder {
+    display: flex;
+    justify-content: space-between;
+}
+.footerListOrder {
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-around;
+}
+.marginListOrder {
+    margin: 5%;
+}
+.headerOrder{
+    background: rgba(182, 177, 177, 0.952);
+}
+.marginItem {
+    margin: 2%;
+}
