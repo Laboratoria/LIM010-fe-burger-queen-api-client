@@ -22,6 +22,7 @@ const PintarProductos = () => {
   const [nameClient, setNameClient] = useState('');
   const [errOrder, setErrOrder] = useState('');
   const [userId, setUserId] = useState('');
+  const [numOrd, setNumOrd] = useState(1);
 
   const FNameClient = (e) => {
     setNameClient(e.target.value);
@@ -109,13 +110,14 @@ const PintarProductos = () => {
               console.log(res);
               setNameClient('');
               setProdOrder([]);
+              setNumOrd(numOrd + 1);
             }).catch((error) => {
               setErrOrder(error.message);
             });
           }}
           >
             {/* <div> */}
-            <p className={lineaOrder.lineaOrder}>Order N°001</p>
+            <p className={lineaOrder.lineaOrder}>{`Order N°000${numOrd}`}</p>
             {/* </div> */}
             <div className={lineaOrder.clientInput}>
               {/* <p>Cliente: </p> */}
