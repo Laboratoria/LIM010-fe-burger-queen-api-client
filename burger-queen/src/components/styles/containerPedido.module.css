@@ -18,3 +18,12 @@
 	flex-wrap: wrap;
 	display: flex;
 }
+
+@media (min-width:768px) {
+	.containerPedido{
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		/* margin-top: 30%; */
+	}
+  }

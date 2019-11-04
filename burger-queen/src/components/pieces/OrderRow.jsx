@@ -1,6 +1,8 @@
 import React from 'react';
 import itemOrderTab from '../styles/itemOrder.module.css';
 import deleteProduct from '../controllers/eliminarProducto.js';
+import itemOrder from '../styles/itemOrder.module.css';
+import deleteImage from '../images/eliminar.png';
 
 const OrderRow = (props) => {
   // console.log(props);
@@ -13,19 +15,20 @@ const OrderRow = (props) => {
 
   return (
     <tr>
-      <td className={itemOrderTab.th}>{name}</td>
-      <td className={itemOrderTab.th}>{cant}</td>
-      <td className={itemOrderTab.th}>{price}</td>
-      <td className={itemOrderTab.th}>{subtotal}</td>
-      <td>
+      <td className={itemOrderTab.td}>{name}</td>
+      <td className={itemOrderTab.td}>{cant}</td>
+      <td className={itemOrderTab.td}>{`S/.${price}`}</td>
+      <td className={itemOrderTab.td}>{`S/.${subtotal}`}</td>
+      <td className={itemOrderTab.td}>
         <button
+          className={itemOrder.btnIcono}
           type="button"
           onClick={() => {
             const newOrder = deleteProduct(prodOrder, producto.id);
             setProdOrder(newOrder);
           }}
         >
-          Eliminar
+          <img className={itemOrder.btnDelete} src={deleteImage} alt="delete" />
         </button>
       </td>
     </tr>

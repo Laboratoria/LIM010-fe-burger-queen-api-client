@@ -1,31 +1,36 @@
-.containerFlexIzq, .clientInput, .footerSideOrder{
+.containerFlexIzq, .clientInput, .footerSideOrder, .flexContainerItem{
     padding: 0;
-    margin: 0;
+    /* margin: 2%; */
     display: flex;
     /* justify-content: space-between; */
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: space-around;
 
 }
 .listItemMenu {
   background:#eee;
-  padding: 5px;
-  margin: 5px;
-  height: 100px;
-  font-weight: bold;
+  padding: 0;
+  margin: 5px 20px;
+  /* width: 150px; */
+  /* height: 100px; */
+  /* font-weight: bold; */
   text-align: center;
   flex: 1;
+  flex-wrap: nowrap;
+  border:none;
 }
 .imgMenu {
-    width: 10%;
-    height: 10%;
+    /* width: 70px; */
+    height: 40px;
+    width: 40px;
 }
 
 .lineaOrder {
   text-align: center;
   color: rgb(34, 33, 36);
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
   margin-top: 5%;
 }
 
@@ -33,7 +38,7 @@
     width: 100%;
     align-self: center;
     /* border-bottom: 2px solid #C4C4C4; */
-    margin-left: 5%;
+    /* margin-left: 5%; */
 
 }
 .clientInput label {
@@ -41,9 +46,9 @@
 }
 
 .nameInput{
-    padding: 5px 0px 5px 5px;
+    /* padding: 5px 0px 5px 5px; */
     background-color: #f5f5f5;
-    width: 75%;
+    width: 87%;
     margin: 2%;
   }
 
@@ -52,16 +57,58 @@
 }
 .btnEnviar{
     width: 30%;
-    margin:15px;
-    padding: 2%;
+    margin:5px 20px;
+    /* padding: 2%; */
     color:#F1F1F1;
     background-color: #FED75F;
     border-radius: 10px;
     flex:1;
     font-weight: bold;
+    border-style: none;
+    /* position: relative;
+    display: inline-block   ; */
 }
+
+.btnEnviar:hover{
+    color:rgb(15, 11, 11);
+    background-color: rgb(209, 170, 52);
+    border-radius: 15px;
+  }
 
 .totalOrder{
     text-align: right;
     margin: 5%;
+}
+
+.containerItemProduc{
+    align-content: center;
+    padding: 2%;
+    height: 30%;
+    text-align: center;
+    /* margin-top:10px; */
+}
+
+.containerItemProduc p{
+    /* margin-top:15px; */
+    margin: 5px;
+    height: 20px;
+    width: 100px;
+    font-size: 9px;
+}
+
+@media (min-width:768px) {
+	.btnEnviar{
+        padding: 2%;
+        margin:180px 60px 0px;
+    }
+    .containerItemProduc p{
+        font-size: 15px;
+    }
+    .imgMenu {
+        height: 50px;
+        width: 50px;
+    }
+    .lineaOrder {
+        font-size: 20px;
+      }
 }
