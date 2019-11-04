@@ -1,7 +1,9 @@
 import React from 'react';
 import deleteUsers from '../controllers/deleteUser.js';
 import putUser from '../controllers/putUser.js';
-
+import itemOrder from '../styles/itemOrder.module.css';
+import deleteImage from '../images/eliminar.png';
+import editImage from '../images/editar.png';
 
 const UserListRow = (props) => {
   const users = props.usersAll;
@@ -15,6 +17,7 @@ const UserListRow = (props) => {
       <td>{roles.admin}</td>
       <td>
         <button
+          className={itemOrder.btnIcono}
           type="submit"
           onClick={() => {
             console.log(_id);
@@ -24,12 +27,13 @@ const UserListRow = (props) => {
             });
           }}
         >
-Eliminar
+          <img className={itemOrder.btnDelete} src={deleteImage} alt="delete" />
         </button>
 
       </td>
       <td>
         <button
+          className={itemOrder.btnIcono}
           type="submit"
           onClick={() => {
             console.log(email);
@@ -38,7 +42,7 @@ Eliminar
             });
           }}
         >
-Editar
+          <img className={itemOrder.btnDelete} src={editImage} alt="delete" />
 
         </button>
 

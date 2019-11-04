@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-// import UserList from './UserList.jsx';
 import UserListHead from './UserListHead.jsx';
 import UserListRow from './UserListRow.jsx';
 import getUserList from '../controllers/getUserList.js';
 import postUser from '../controllers/postUser.js';
-// import addUserList from '../controllers/addUser.js';
-// import products from '../controllers/products.js';
+import formUser from '../styles/formUser.module.css';
+// import itemOrderTable from '../styles/itemOrder.module.css';
 
 const UserRegister = () => {
   const [users, setUsers] = useState([]);
@@ -13,13 +12,6 @@ const UserRegister = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // const addEmail = (e) => {
-  //   console.log(setEmail(e.target.value));
-  // };
-
-  // const addPassword = (e) => {
-  //   setPassword(e.target.value);
-  // };
 
   const usersList = (token) => {
     getUserList(token).then((res) => {
@@ -45,40 +37,32 @@ const UserRegister = () => {
 
   return (
     <>
-      <form onSubmit={(e) => submit(e)
-        // e.preventDefault();
-        // postUser('token', email, password, 'no')
-        //   .then((res) => {
-        //     addEmail(res);
-        //   })
-        //   .catch((error) => {
-        //     console.error(error);
-        //   });
-      }
-      >
+      <form className={formUser.formAdd} onSubmit={(e) => submit(e)}>
         <h1>Admin. de Usuarios</h1>
-        <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input className={formUser.inputUser} placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <br />
-        <input placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input className={formUser.inputUser} placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <br />
         <label>Administrador</label>
-        <select>
-          <option value="Si">Si</option>
-          <option value="No">No</option>
-        </select>
+        <div>
+          <select>
+            <option value="Si">Si</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
         {' '}
         <br />
-        <button>
+        <button className={formUser.btn}>
 Guardar
-
         </button>
       </form>
-      <div>
-        <table>
+      <div className={formUser.divList}>
+        <table className={` ${formUser.tableListUser}`}>
           <thead>
             <UserListHead />
           </thead>
-          <tbody>
+          <tbody className={formUser.txtUser}>
             {
               users.map((user) => (<UserListRow usersAll={user} />))
 }

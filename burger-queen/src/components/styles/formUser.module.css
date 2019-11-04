@@ -1,0 +1,46 @@
+.formAdd {
+	margin:2%;
+	font-size: 10px;	
+}
+.formAdd h1{
+	text-align: center;
+	margin: 15px 0px;
+	font-size: 15px;
+}
+
+.inputUser{
+	width: 100%;
+	margin: 5px 0px;
+	border-radius: 8px;
+	border:1px solid ;
+	padding: 1px;
+	font-size: 10px;
+}
+
+.btn{
+	margin:5px 0px;
+	color:#F1F1F1;
+	background-color:#fe885f;
+	border-radius: 5px;
+	flex:1;
+	font-weight: bold;
+	border-style: none;
+}
+
+.tableListUser{
+	background: #ddd;
+	text-align: left;
+	/* margin:5px; */
+	font-size: 9px;
+	width: 100%;
+	height: 100%;
+}
+.divList{
+	margin:2%;
+}
+.txtUser {
+	font-size: 8px;
+}
+.theadUser {
+	width: 100px;
+}
