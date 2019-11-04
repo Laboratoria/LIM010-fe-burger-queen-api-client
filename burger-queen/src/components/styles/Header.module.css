@@ -56,8 +56,8 @@
   font-family: 'Merienda One';
 }
 .iconLabel {
-  font-size: 27px;
-  padding-left: 31%;
+  font-size: 23px;
+  padding-left: 44%;
 }
 @media (min-width:1024px) {
   .img {
@@ -69,6 +69,16 @@
   .bienvenida {
     font-size: 45px;
   }
+  .iconLabel {
+    font-size: 27px;
+    padding-left: 63%;
+    /* display: none; */
+  }
+  .menu ul {
+    background: rgba(254, 215, 95, 0.9);
+    padding-left: 0px;
+    height: 0%;
+  }
 }
 @media (min-width: 650px) and (max-width: 1023px) {
   .img {
@@ -79,5 +89,9 @@
   }
   .bienvenida {
     font-size: 21px;
+  }
+  .iconLabel {
+    font-size: 25px;
+    padding-left: 67%;
   }
 }

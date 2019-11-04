@@ -7,7 +7,7 @@ const PHeader = ({ user }) => (
   <div className={style.headerMenuUno}>
     <div className={`${style.headerMenuDos} ${style.headerBarraMenu}`}>
       <img src={logo} alt="logo" className={style.img} />
-      <p className={style.bienvenida}>¡Bienvenido Carlos!</p>
+      <p className={style.bienvenida}>¡Bienvenido!</p>
       {/* <input className={style.cerrar} type="button" value="CERRAR SESIÓN" /> */}
       <input type="checkbox" className={style.btnMenu} id="btnMenu" />
       <label className={`glyphicon glyphicon-align-justify ${style.iconLabel}`} htmlFor="btnMenu" />

@@ -11,7 +11,7 @@ import addProduct from '../controllers/order.js';
 import getUserId from '../controllers/getUserId.js';
 import postOrder from '../controllers/postOrder.js';
 import style1 from '../styles/Login.module.css';
-import productsImg from '../images/cafeAmericano.jpg';
+// import productsImg from '../images/cafeAmericano.jpg';
 import itemMenu from '../styles/itemMenu.module.css';
 // import styles1 from '../styles/Login.module.css';
 
@@ -87,7 +87,7 @@ const PintarProductos = () => {
                 }}
               >
                 <div className={itemMenu.containerItemProduc}>
-                  <img src={productsImg} alt="products" className={itemMenu.imgMenu} />
+                  <img src={p.image} alt="products" className={itemMenu.imgMenu} />
                 </div>
                 <div className={itemMenu.containerItemProduc}>
                   <p>

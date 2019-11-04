@@ -1,9 +1,8 @@
 .border {
     border: 1px solid black;
 }
-.headerListOrder {
-    display: flex;
-    justify-content: space-between;
+.headerDate {
+    text-align: center;
 }
 .footerListOrder {
     margin-top: 2%;
@@ -14,7 +13,7 @@
     margin: 5%;
 }
 .headerOrder{
-    background: rgba(182, 177, 177, 0.952);
+    background: #eee;
 }
 .marginItem {
     margin: 2%;

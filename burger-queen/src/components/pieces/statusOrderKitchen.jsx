@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import btnCategory from '../styles/btnCategory.module.css';
 import lineaOrder from '../styles/itemMenu.module.css';
-import containerPedido from '../styles/containerPedido.module.css';
 import order from '../controllers/getOrder.js';
 import putOrders from '../controllers/putOrders';
+import style1 from '../styles/listOrders.module.css';
 // import putOrder from '../controllers/putOrder.js';
 // import getUserId from '../controllers/getUserId.js';
 
@@ -50,57 +50,52 @@ const FilterStatusOrder = () => {
 
   return (
     <>
-      <div className={containerPedido.containerPedido}>
-        <div className={containerPedido.containerListMenu}>
+      <div>
+        <div>
           <div className={lineaOrder.containerFlexIzq}>
-
             <button className={btnCategory.btnCategory} type="submit" onClick={() => { setTypeOrderStatus('pending'); }}>Pendientes</button>
             <button className={btnCategory.btnCategory} type="submit" onClick={() => { setTypeOrderStatus('delivering'); }}>Entregados</button>
           </div>
-          <div className={lineaOrder.containerFlexIzq}>
-            {
-				      prodOrder.filter((o) => o.status === typeOrderStatus).map((orders) => (
+          <div>
+            {prodOrder.filter((orders) => orders.status === typeOrderStatus).map((order) => (
 
-  <div key={orders._id}>
-    <p>{orders.client}</p>
-    <p>{orders.dateEntry}</p>
-    <p>{orders.status}</p>
-    <button
-      type="submit"
-      name="order"
-      value="canceled"
-      onClick={(e) => {
-        console.log(e.target.value);
-        putOrders('el token', orders.userId, orders.client, orders.products, e.target.value).then((res) => {
-          console.log(res);
-        });
-      }}
-    >
-      {' '}
-Cancelar
-
-    </button>
-    <button
-      type="submit"
-      name="order"
-      value="delivering"
-      onClick={(e) => {
-        console.log(e.target.value);
-        putOrders('el token', orders.userId, orders.client, orders.products, e.target.value).then((res) => {
-          console.log(res);
-        });
-      }}
-    >
-      {' '}
-Entregar
-
-    </button>
-  </div>
-				      ))
-}
+              <div className={`${style1.marginListOrder}`} key={order._id}>
+                <div className={`${style1.headerOrder} ${style1.border}`}>
+                  <div>
+                  <p className={`${style1.headerDate}`}><strong>{order.dateEntry}</strong></p>
+                    <p><strong>
+                      Cliente:
+                      {' '}
+                      {order.client}
+                    </strong></p>
+                  </div>
+                </div>
+                <div className={`${style1.border}`}>
+                  {order.products.map((p) => (<p className={style1.marginItem} key={p.product.id}>{`${p.qty} ${p.product.name}`}</p>))}
+                </div>
+                {typeOrderStatus === 'delivering' ?
+                  ('')
+                  : (
+                    <div className={style1.footerListOrder}>
+                      <button className='btn btn-primary' type="button" name="orden" onClick={() => {
+                        putOrders('el token', order.userId, order.client, order.products, 'canceled').then((res) => {
+                          console.log(res);
+                        });
+                      }}
+                      >Canceled</button>
+                      <button className='btn btn-primary' type="button" name="orden" onClick={() => {
+                        putOrders('el token', order.userId, order.client, order.products, 'delivering').then((res) => {
+                          console.log(res);
+                        });
+                      }}
+                      >Delivering</button>
+                    </div>
+                  )}
+              </div>
+            ))}
+          </div>
           </div>
         </div>
-      </div>
     </>
   );
 };
