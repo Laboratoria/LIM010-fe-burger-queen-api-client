@@ -7,45 +7,59 @@ import formUser from '../styles/formUser.module.css';
 // import itemOrderTable from '../styles/itemOrder.module.css';
 
 const UserRegister = () => {
-  const [users, setUsers] = useState([]);
-  // const [addUser, setAddUser] = useState({});
+  // const [users, setUsers] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [admin, setAdmin] = useState('');
+  const [err, setErrUser] = useState('');
 
-
-  const usersList = (token) => {
-    getUserList(token).then((res) => {
-      setUsers(res.users);
-      console.log(res.users);
-    })
-      .catch((error) => {
-        console.log(error);
-      });
+  const FEmailUser = (e) => {
+    setEmail(e.target.value);
   };
 
-  const submit = (e) => {
-    e.preventDefault();
-    postUser('token', email, password, 'no');
-    setEmail('');
-    setPassword('');
+  const FPasswordUser = (e) => {
+    setPassword(e.target.value);
   };
 
+  const FRoleUser = (e) => {
+    setAdmin(e.target.value);
+  };
 
-  useEffect(() => {
-    usersList('token');
-  }, []);
+  // const usersList = (token) => {
+  //   getUserList(token).then((res) => {
+  //     setUsers(res.users);
+  //     console.log(res.users);
+  //   })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   usersList(localStorage.getItem('token'));
+  // }, []);localStorage.getItem('token')
 
   return (
     <>
-      <form className={formUser.formAdd} onSubmit={(e) => submit(e)}>
+      <form className={formUser.formAdd} onSubmit= {(e) => {
+            e.preventDefault();
+            postUser(localStorage.getItem('token'), email, password, admin).then((res) => {
+              console.log(res);
+              // setNameClient('');
+              // setProdOrder([]);
+              // setNumOrd(numOrd + 1);
+            }).catch((error) => {
+              setErrUser(error.message);
+            });
+          }}>
         <h1>Admin. de Usuarios</h1>
-        <input className={formUser.inputUser} placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input className={formUser.inputUser} placeholder="Email" value={email} onChange={FEmailUser} />
         <br />
-        <input className={formUser.inputUser} placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input className={formUser.inputUser} placeholder="Password" value={password} onChange={FPasswordUser} />
         <br />
         <label>Administrador</label>
         <div>
-          <select>
+          <select onChange={FRoleUser}>
             <option value="Si">Si</option>
             <option value="No">No</option>
           </select>
@@ -56,8 +70,9 @@ const UserRegister = () => {
         <button className={formUser.btn}>
 Guardar
         </button>
+        {err && <p>{setErrUser}</p>}
       </form>
-      <div className={formUser.divList}>
+      {/* <div className={formUser.divList}>
         <table className={` ${formUser.tableListUser}`}>
           <thead>
             <UserListHead />
@@ -68,7 +83,7 @@ Guardar
 }
           </tbody>
         </table>
-      </div>
+      </div> */}
     </>
   );
 };

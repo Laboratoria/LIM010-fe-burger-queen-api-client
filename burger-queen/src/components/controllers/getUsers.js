@@ -1,8 +1,8 @@
 const getUsers = (token) => (
-  fetch('http://localhost:5001/users', {
+  fetch('http://159.65.75.191/users', {
     method: 'GET',
     headers: {
-      authorization: token,
+      authorization: 'Bearer ' + token,
       'Content-Type': 'application/json',
     },
   }).then((respuesta) => {

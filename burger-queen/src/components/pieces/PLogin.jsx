@@ -31,7 +31,9 @@ const PLogin = ({ history }) => {
             return false;
           }
           CLogin(email, password).then((res) => {
-            console.log(res.token);
+            localStorage.setItem('token', res.token);
+            const token = localStorage.getItem('token');
+            console.log(token);
             history.replace('/Home');
           }).catch((error) => {
             setErr(error.message);

@@ -1,17 +1,17 @@
 const postUser = (token, email, password, admin) => (
-  fetch('http://localhost:5001/users', {
+  fetch('http://159.65.75.191/users', {
     method: 'POST',
     headers: {
-      authorization: token,
+      authorization: 'Bearer ' + token,
       'Content-Type': 'application/json',
     },
-    body: {
+    body: JSON.stringify({
       email,
       password,
       roles: {
         admin,
       },
-    },
+    }),
   })
     .then((respuesta) => {
       if (respuesta.status === 200) {

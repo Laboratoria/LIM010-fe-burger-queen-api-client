@@ -2,7 +2,7 @@ const putOrders = (token, userId, client, products, status) => (
   fetch('http://localhost:5001/orders/', {
     method: 'PUT',
     headers: {
-      authorization: token,
+      authorization: 'Bearer' + token,
       'Content-Type': 'application/json',
     },
     body: { userId, client, products, status }

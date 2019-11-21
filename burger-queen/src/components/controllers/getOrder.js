@@ -1,8 +1,8 @@
 const order = (token) => (
-  fetch('http://localhost:5001/orders', {
+  fetch('http://159.65.75.191/orders', {
     method: 'GET',
     headers: {
-      authorization: token,
+      authorization: 'Bearer' + token,
       'Content-Type': 'application/json',
     },
   })

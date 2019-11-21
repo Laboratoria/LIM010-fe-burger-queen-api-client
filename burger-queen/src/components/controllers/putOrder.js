@@ -1,11 +1,11 @@
 const putOrder = (token, userId, client, products) => {
-  fetch('http://localhost:5001/orders', {
+  fetch('http://159.65.75.191/orders', {
     method: 'PUT',
     headers: {
-      authorization: token,
+      authorization: 'Bearer' + token,
       'Content-Type': 'aplication/json',
     },
-    body: { userId, client, products },
+    body: JSON.stringify({ userId, client, products }),
   })
     .then((respuesta) => {
       if (respuesta.status === 200) {

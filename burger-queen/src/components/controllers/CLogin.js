@@ -1,10 +1,10 @@
 const FLogin = (email, password) => (
-  fetch('http://localhost:5001/auth', {
+  fetch('http://159.65.75.191/auth', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: { email, password },
+    body: JSON.stringify({ email, password }),
   })
     .then((respuesta) => {
       if (respuesta.status === 200) {

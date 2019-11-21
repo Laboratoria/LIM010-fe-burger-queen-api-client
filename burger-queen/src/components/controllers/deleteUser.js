@@ -1,11 +1,11 @@
 const deleteUsers = (token, userId) => (
-  fetch('http://localhost:5001/users', {
+  fetch('http://159.65.75.191/users', {
     method: 'DELETE',
     headers: {
-      authorization: token,
+      authorization: 'Bearer' + token,
       'Content-Type': 'application/json',
     },
-    body: { userId },
+    body: JSON.stringify({ userId }),
   })
     .then((respuesta) => {
       if (respuesta.status === 200) {

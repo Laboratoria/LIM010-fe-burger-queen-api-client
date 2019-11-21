@@ -2,7 +2,7 @@ const putUser = (token, email, password, admin) => (
   fetch('http://localhost:5001/users', {
     method: 'PUT',
     headers: {
-      authorization: token,
+      authorization: 'Bearer' + token,
       'Content-Type': 'application/json',
     },
     body: {
