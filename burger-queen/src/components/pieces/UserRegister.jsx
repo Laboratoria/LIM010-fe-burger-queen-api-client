@@ -7,7 +7,7 @@ import formUser from '../styles/formUser.module.css';
 // import itemOrderTable from '../styles/itemOrder.module.css';
 
 const UserRegister = () => {
-  // const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [admin, setAdmin] = useState('');
@@ -23,21 +23,22 @@ const UserRegister = () => {
 
   const FRoleUser = (e) => {
     setAdmin(e.target.value);
+    console.log(e.target.value);
   };
 
-  // const usersList = (token) => {
-  //   getUserList(token).then((res) => {
-  //     setUsers(res.users);
-  //     console.log(res.users);
-  //   })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
+  const usersList = (token) => {
+    getUserList(token).then((res) => {
+      console.log(res);
+      setUsers(res);
+    })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-  // useEffect(() => {
-  //   usersList(localStorage.getItem('token'));
-  // }, []);localStorage.getItem('token')
+  useEffect(() => {
+    usersList(localStorage.getItem('token'));
+  }, []);
 
   return (
     <>
@@ -60,30 +61,30 @@ const UserRegister = () => {
         <label>Administrador</label>
         <div>
           <select onChange={FRoleUser}>
-            <option value="Si">Si</option>
-            <option value="No">No</option>
+            <option value="true">Si</option>
+            <option value="false">No</option>
           </select>
         </div>
 
         {' '}
         <br />
         <button className={formUser.btn}>
-Guardar
+        Guardar
         </button>
         {err && <p>{setErrUser}</p>}
       </form>
-      {/* <div className={formUser.divList}>
+      <div className={formUser.divList}>
         <table className={` ${formUser.tableListUser}`}>
           <thead>
             <UserListHead />
           </thead>
           <tbody className={formUser.txtUser}>
             {
-              users.map((user) => (<UserListRow usersAll={user} />))
-}
+              users.map((user) => (<UserListRow usersAll={user} usersList={usersList} key={user._id}/>))
+            }
           </tbody>
         </table>
-      </div> */}
+      </div>
     </>
   );
 };

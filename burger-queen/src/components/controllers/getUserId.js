@@ -1,7 +1,7 @@
 const getUserId = (token) => fetch('http://159.65.75.191/userId', {
   method: 'GET',
   headers: {
-    authorization: 'Bearer ' + token,
+    authorization: 'bearer ' + token,
     'Content-Type': 'application/json',
   },
 }).then((resp) => {

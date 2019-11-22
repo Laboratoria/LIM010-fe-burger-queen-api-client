@@ -2,24 +2,28 @@ const putUser = (token, email, password, admin) => (
   fetch('http://localhost:5001/users', {
     method: 'PUT',
     headers: {
-      authorization: 'Bearer' + token,
+      authorization: 'bearer ' + token,
       'Content-Type': 'application/json',
     },
-    body: {
+    body: JSON.stringify({
       email,
       password,
       roles: {
         admin,
       },
-    },
+    }),
   })
     .then((respuesta) => {
       if (respuesta.status === 200) {
         return respuesta.json();
       } if (respuesta.status === 400) {
-        return Promise.reject(new Error('Ingrese su usuario y/o contraseña'));
+        return Promise.reject(new Error('No se proveen email o password o ninguno de los dos'));
+      } if (respuesta.status === 401) {
+        return Promise.reject(new Error('No hay cabecera de autenticación'));
+      } if (respuesta.status === 403) {
+        return Promise.reject(new Error('No es ni admin o la misma usuaria'));
       }
-      return Promise.reject(new Error('Solicite credenciales con el administrador'));
+      return Promise.reject(new Error('La usuaria solicitada no existe'));
     })
 );
 

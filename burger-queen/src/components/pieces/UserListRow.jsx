@@ -11,9 +11,8 @@ const UserListRow = (props) => {
     email, password, roles, _id,
   } = users;
   return (
-    <tr colSpan="5">
+    <tr colSpan="5" >
       <td>{email}</td>
-      <td>{password}</td>
       <td>{roles.admin}</td>
       <td>
         <button
@@ -21,9 +20,9 @@ const UserListRow = (props) => {
           type="submit"
           onClick={() => {
             console.log(_id);
-            deleteUsers('token', _id).then((res) => {
+            deleteUsers(localStorage.getItem('token'), _id).then((res) => {
               console.log(res);
-              alert(`"desea eliminar al usuario?" ${res.email}`);
+              alert(`desea eliminar al usuario? ${res.email}`);
             });
           }}
         >
