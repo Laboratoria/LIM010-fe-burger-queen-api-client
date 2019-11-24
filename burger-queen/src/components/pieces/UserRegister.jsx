@@ -40,15 +40,26 @@ const UserRegister = () => {
     usersList(localStorage.getItem('token'));
   }, []);
 
+  const funAdmin = (admin) => {
+    if(admin === 'true'){
+      const admint = true;
+      return admint;
+    }else{
+      const admint = false;
+      return admint;
+    }
+  };
+  
   return (
     <>
       <form className={formUser.formAdd} onSubmit= {(e) => {
             e.preventDefault();
-            postUser(localStorage.getItem('token'), email, password, admin).then((res) => {
+            console.log(admin);
+            postUser(localStorage.getItem('token'), email, password, funAdmin(admin)).then((res) => {
               console.log(res);
-              // setNameClient('');
-              // setProdOrder([]);
-              // setNumOrd(numOrd + 1);
+              usersList(localStorage.getItem('token'));
+              setEmail('');
+              setPassword('');
             }).catch((error) => {
               setErrUser(error.message);
             });
@@ -61,6 +72,7 @@ const UserRegister = () => {
         <label>Administrador</label>
         <div>
           <select onChange={FRoleUser}>
+            <option disabled>Seleccione opción</option>
             <option value="true">Si</option>
             <option value="false">No</option>
           </select>

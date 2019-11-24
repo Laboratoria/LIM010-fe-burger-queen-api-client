@@ -3,7 +3,7 @@ const postUser = (token, email, password, admin) => {
     return fetch('http://159.65.75.191/users', {
       method: 'POST',
       headers: {
-        authorization: 'Bearer ' + token,
+        authorization: 'bearer ' + token,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({

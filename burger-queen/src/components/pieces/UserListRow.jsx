@@ -13,7 +13,7 @@ const UserListRow = (props) => {
   return (
     <tr colSpan="5" >
       <td>{email}</td>
-      <td>{roles.admin}</td>
+      <td>{roles.admin === false ? 'NO': 'SI'}</td>
       <td>
         <button
           className={itemOrder.btnIcono}
