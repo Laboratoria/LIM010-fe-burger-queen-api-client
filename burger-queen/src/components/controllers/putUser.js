@@ -1,5 +1,5 @@
 const putUser = (token, email, password, admin) => (
-  fetch('http://localhost:5001/users', {
+  fetch(`http://159.65.75.191/users/${userId}`, {
     method: 'PUT',
     headers: {
       authorization: 'bearer ' + token,

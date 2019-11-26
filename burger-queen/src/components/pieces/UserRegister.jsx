@@ -10,7 +10,7 @@ const UserRegister = () => {
   const [users, setUsers] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [admin, setAdmin] = useState('');
+  const [admin, setAdmin] = useState('true');
   const [err, setErrUser] = useState('');
 
   const FEmailUser = (e) => {
