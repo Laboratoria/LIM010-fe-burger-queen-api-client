@@ -21,6 +21,7 @@ const PHeader = ({ user }) => (
           <li className={style.itemMenu}><Link to="/ListaPedidos">LISTA DE PEDIDOS</Link></li>
           <li className={style.itemMenu}><Link to="/Cocinero">COCINERO</Link></li>
           <li className={style.itemMenu}><Link to="/Usuarios">USUARIOS</Link></li>
+          <li className={style.itemMenu}><Link to="/Productos">PRODUCTOS</Link></li>
           <li className={style.itemMenu}><Link to="/">CERRAR SESIÓN</Link></li>
           {/* )} */}
         </ul>
