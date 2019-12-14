@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import UserListHead from './UserListHead.jsx';
+import React, { useState, useEffect } from 'react';
+// import UserListHead from './UserListHead.jsx';
 import postProduct from '../controllers/postProducts.js';
 import formUser from '../styles/formUser.module.css';
+import getProductList from '../controllers/getProductsList.js';
+import ProductListHead from './ProductListHead.jsx';
+import ProductListRow from './ProductListRow.jsx';
 
 const ProductRegister = () => {
   const [nameProd, setNameProd] = useState('');
@@ -9,6 +12,7 @@ const ProductRegister = () => {
   const [imagenProd, setImagenProd] = useState('');
   const [typeProd, setTypeProd] = useState('');
   const [err, setErrProd] = useState('');
+  const [products, setProducts] = useState([]);
 
   const FnameProd = (e) => {
     setNameProd(e.target.value);
@@ -25,6 +29,21 @@ const ProductRegister = () => {
     setTypeProd(e.target.value);
   };
 
+  const productsList = (token) => {
+    getProductList(token).then((resp) => {
+      setProducts(resp);
+      console.log(resp);
+    })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    productsList(localStorage.getItem('token'));
+  }, []);
+
+
   return (
     <>
       <form
@@ -39,10 +58,11 @@ const ProductRegister = () => {
           console.log(typeProd);
           postProduct(localStorage.getItem('token'), nameProd, priceProd, imagenProd, typeProd).then((respuesta) => {
             console.log(respuesta, 'guardando');
-            // setNameProd('');
-            // setImagenProd('');
-            // setPriceProd('');
-            // setTypeProd('');
+            productsList(localStorage.getItem('token'));
+            setNameProd('');
+            setImagenProd('');
+            setPriceProd('');
+            setTypeProd('');
           }).catch((error) => {
             setErrProd(error.message);
           });
@@ -66,11 +86,11 @@ const ProductRegister = () => {
       <div className={formUser.divList}>
         <table className={` ${formUser.tableListUser}`}>
           <thead>
-            <UserListHead />
+            <ProductListHead />
           </thead>
           <tbody className={formUser.txtUser}>
             {
-            //   products.map((user) => (<UserListRow usersAll={user} usersList={usersList} key={user._id} />))
+              products.map((product) => (<ProductListRow productsAll={product} productsList={productsList} key={product._id} />))
             }
           </tbody>
         </table>

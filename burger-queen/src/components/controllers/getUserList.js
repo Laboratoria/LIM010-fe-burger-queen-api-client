@@ -2,7 +2,7 @@ const getUsersList = (token) => (
   fetch('http://159.65.75.191/users', {
     method: 'GET',
     headers: {
-      authorization: 'bearer ' + token,
+      authorization: `bearer ${  token}`,
       'Content-Type': 'application/json',
     },
   })

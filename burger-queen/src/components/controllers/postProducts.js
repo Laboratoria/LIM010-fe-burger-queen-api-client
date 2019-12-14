@@ -3,7 +3,7 @@ const postProduct = (token, name, price, imagen, type) => {
   return fetch('http://159.65.75.191/products', {
     method: 'POST',
     headers: {
-      authorization: `bearer  ${token}`,
+      authorization: 'bearer ' + token,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
