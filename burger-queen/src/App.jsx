@@ -13,6 +13,7 @@ import StartView from './components/pages/StartView.jsx';
 import ViewListOrdersWaiter from './components/pages/ViewListOrdersWaiter.jsx';
 import ViewKitchen from './components/pages/ViewKitchen.jsx';
 import ViewAdminUser from './components/pages/ViewAdminUser.jsx';
+import ViewAdminProduct from './components/pages/ViewAdminProduct.jsx';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/Cocinero" component={ViewKitchen} />
         <Route path="/Usuarios" component={ViewAdminUser} />
         <Route path="/CerrarSesion" component={ViewLogin} />
+        <Route path="/Productos" component={ViewAdminProduct} />
       </Switch>
     </Router>
   );
