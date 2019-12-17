@@ -1,0 +1,54 @@
+.table{
+    background: #eee;
+    text-align: left;
+    margin:10px;
+}
+.th{
+    width: 150px;
+    text-align: center;
+    background-color: #ee6767;
+    border-bottom: solid 5px rgba(93, 37, 37, 0.4);
+    padding: 5px;
+    color: white;
+    font-size: 11px;
+    text-align: left;
+    border:hidden;
+}
+
+.td{
+    width: 150px;
+    text-align: center;
+    /* background-color: #484545; */
+    border-bottom: solid 5px rgba(93, 37, 37, 0.4);
+    padding: 5px;
+    color: #484545;
+    border:hidden;
+    font-size: 10px;
+    text-align: left;
+}
+
+.btnDelete{
+    width: 25px;
+    height: 25px;
+
+}
+.btnIcono{
+    background: #eee;
+    border:none;
+}
+.tableOrder {
+    margin:0px 20px;
+}
+.txtTotal{
+    font-weight: bold;
+}
+
+
+@media (min-width:768px) {
+.th{
+    font-size: 13px;
+}
+.td{
+    font-size: 12px;
+}
+}

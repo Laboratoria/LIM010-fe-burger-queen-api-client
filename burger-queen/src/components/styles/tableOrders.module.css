@@ -1,0 +1,11 @@
+table, th, td {
+    border: 1px solid black;
+    margin: 2% 0%;
+  }
+
+
+@media (min-width:768px) {
+    table{
+      margin: 2%;
+    }
+}

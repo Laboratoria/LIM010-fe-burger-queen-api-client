@@ -1,0 +1,32 @@
+.menu {
+    display: flex;
+    height: 100vh;
+}
+.menuUno {
+    display: flex;
+    flex-direction: column;
+}
+.menuDos {
+    background: #FED75F;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.pedido, .lista {
+    background: #FED75F;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 13px;
+    font-weight: 800;
+    height: 41px;
+  }
+  .img {
+      opacity: 0.6;
+  }
+  .fondoCentral {
+    background: #E5E5E5;
+    width: 100vw;
+  }
+  @media (min-width:1024px) {
+    .pedido, .lista {
+        font-size: 25px;
+        height: 70px;
+      }
+  }
